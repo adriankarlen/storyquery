@@ -1,0 +1,2711 @@
+{
+  "v": 0,
+  "components": {
+    "components-buttons-mainbutton": {
+      "id": "components-buttons-mainbutton",
+      "name": "MainButton",
+      "path": "./src/components/MainButton/MainButton.stories.tsx",
+      "stories": [
+        {
+          "id": "components-buttons-mainbutton--primary",
+          "name": "Primary",
+          "snippet": "const Primary = () => <MainButton\n    onClick={fn()}\n    variant=\"primary\"\n    disabled={false}\n    inverted={false}\n    loading={false}\n    iconLeft={false}\n    size=\"default\"\n    faux={false}\n    type=\"button\"\n    autofocus={false}>{label}</MainButton>;"
+        },
+        {
+          "id": "components-buttons-mainbutton--primary-with-icon",
+          "name": "Primary With Icon",
+          "snippet": "const PrimaryWithIcon = () => <MainButton\n    onClick={fn()}\n    variant=\"primary\"\n    disabled={false}\n    inverted={false}\n    loading={false}\n    iconLeft={false}\n    faux={false}\n    type=\"button\"\n    autofocus={false}\n    icon=\"ArrowRight\">{label}</MainButton>;"
+        }
+      ],
+      "import": "import { MainButton } from \"@spp-technology/sppackel\";",
+      "jsDocTags": {},
+      "description": "MainButton - Primary UI component for user interaction",
+      "reactDocgenTypescript": {
+        "tags": {},
+        "filePath": "/home/runner/work/SPPackel/SPPackel/lib/components/MainButton/index.ts",
+        "description": "MainButton - Primary UI component for user interaction",
+        "displayName": "MainButton",
+        "methods": [],
+        "props": {
+          "variant": {
+            "defaultValue": {
+              "value": "primary"
+            },
+            "description": "Decides the visual variant of the icon button",
+            "name": "variant",
+            "parent": {
+              "fileName": "SPPackel/lib/components/MainButton/MainButton.tsx",
+              "name": "MainButtonProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/components/MainButton/MainButton.tsx",
+                "name": "MainButtonProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"primary\" | \"secondary\" | \"subdued\" | \"semi-transparent\" | \"link\"",
+              "value": [
+                {
+                  "value": "\"primary\""
+                },
+                {
+                  "value": "\"secondary\""
+                },
+                {
+                  "value": "\"subdued\""
+                },
+                {
+                  "value": "\"semi-transparent\""
+                },
+                {
+                  "value": "\"link\""
+                }
+              ]
+            }
+          },
+          "children": {
+            "defaultValue": null,
+            "description": "The contents of the button",
+            "name": "children",
+            "parent": {
+              "fileName": "SPPackel/lib/components/MainButton/MainButton.tsx",
+              "name": "MainButtonProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/components/MainButton/MainButton.tsx",
+                "name": "MainButtonProps"
+              }
+            ],
+            "required": true,
+            "type": {
+              "name": "ReactNode"
+            }
+          },
+          "type": {
+            "defaultValue": null,
+            "description": "The type of the button, can be \"button\", \"submit\" or \"reset\"",
+            "name": "type",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"button\" | \"submit\" | \"reset\"",
+              "value": [
+                {
+                  "value": "\"button\""
+                },
+                {
+                  "value": "\"submit\""
+                },
+                {
+                  "value": "\"reset\""
+                }
+              ]
+            }
+          },
+          "disabled": {
+            "defaultValue": null,
+            "description": "Decides if the button should be disabled",
+            "name": "disabled",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "inverted": {
+            "defaultValue": null,
+            "description": "Decides if the button should use the inverted color scheme",
+            "name": "inverted",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "iconLeft": {
+            "defaultValue": null,
+            "description": "Place icon to the left of the label text",
+            "name": "iconLeft",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "icon": {
+            "defaultValue": null,
+            "description": "Icon",
+            "name": "icon",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"Activity\" | \"Airplay\" | \"AlertCircle\" | \"AlertOctagon\" | \"AlertTriangle\" | \"AlignCenter\" | \"AlignJustify\" | \"AlignLeft\" | \"AlignRight\" | \"Anchor\" | \"Aperture\" | \"Archive\" | \"ArrowDownCircle\" | \"ArrowDownLeft\" | \"ArrowDownRight\" | \"ArrowDown\" | \"ArrowLeftCircle\" | \"ArrowLeft\" | \"ArrowRightCircle\" | \"ArrowRight\" | \"ArrowUpCircle\" | \"ArrowUpLeft\" | \"ArrowUpRight\" | \"ArrowUp\" | \"Award\" | \"BankID\" | \"BellOff\" | \"Bell\" | \"Bluetooth\" | \"Bold\" | \"BookOpen\" | \"Book\" | \"Bookmark\" | \"Box\" | \"Briefcase\" | \"Calendar\" | \"CameraOff\" | \"Camera\" | \"Cast\" | \"CheckCircle\" | \"CheckCircleFilled\" | \"CheckSquare\" | \"CheckSquareFilled\" | \"Check\" | \"ChevronDown\" | \"ChevronLeft\" | \"ChevronRight\" | \"ChevronUp\" | \"Clipboard\" | \"Clock\" | \"CloudDrizzle\" | \"CloudLightning\" | \"CloudOff\" | \"CloudRain\" | \"CloudSnow\" | \"Cloud\" | \"Co2Index\" | \"Code\" | \"Coffee\" | \"Command\" | \"Compass\" | \"Copy\" | \"CornerDownLeft\" | \"CornerDownRight\" | \"CornerLeftDown\" | \"CornerLeftUp\" | \"CornerRightDown\" | \"CornerRightUp\" | \"CornerUpLeft\" | \"CornerUpRight\" | \"Cpu\" | \"CreditCard\" | \"Crop\" | \"Crosshair\" | \"Database\" | \"Delete\" | \"Disc\" | \"Document\" | \"DollarSign\" | \"DownloadCloud\" | \"Download\" | \"Droplet\" | \"Edit2\" | \"Edit3\" | \"Edit\" | \"ExternalLink\" | \"EyeOff\" | \"Eye\" | \"Facebook\" | \"FastForward\" | \"Feather\" | \"FileDoc\" | \"FileImg\" | \"FileMinus\" | \"FilePdf\" | \"FilePlus\" | \"FileText\" | \"FileXls\" | \"FileXml\" | \"File\" | \"Film\" | \"Filter\" | \"Flag\" | \"FolderMinus\" | \"FolderPlus\" | \"Folder\" | \"Frown\" | \"Gift\" | \"GitBranch\" | \"GitCommit\" | \"GitMerge\" | \"GitPullRequest\" | \"GitHub\" | \"Gitlab\" | \"Globe\" | \"GlobeEmpty\" | \"Grid\" | \"HardDrive\" | \"Hash\" | \"Headphones\" | \"Heart\" | \"HelpCircle\" | \"Home\" | \"Image\" | \"Inbox\" | \"Info\" | \"Instagram\" | \"Italic\" | \"Key\" | \"Layers\" | \"Layout\" | \"LifeBuoy\" | \"Link2\" | \"Link\" | \"Linkedin\" | \"List\" | \"Loader\" | \"Lock\" | \"LogIn\" | \"LogOut\" | \"LogOut2\" | \"Mail\" | \"MapPin\" | \"Map\" | \"Maximize2\" | \"Maximize\" | \"Meh\" | \"Menu\" | \"Message\" | \"MessageCircle\" | \"MessageSquare\" | \"MicOff\" | \"Mic\" | \"Minimize2\" | \"Minimize\" | \"MinusCircle\" | \"MinusSquare\" | \"Minus\" | \"Monitor\" | \"Moon\" | \"MoreHorizontal\" | \"MoreVertical\" | \"Move\" | \"Music\" | \"Navigation2\" | \"Navigation\" | \"NumberCircle0\" | \"NumberCircle1\" | \"NumberCircle2\" | \"NumberCircle3\" | \"NumberCircle4\" | \"NumberCircle5\" | \"NumberCircle6\" | \"NumberCircle7\" | \"NumberCircle8\" | \"NumberCircle9\" | \"NumberCircleFilled0\" | \"NumberCircleFilled1\" | \"NumberCircleFilled2\" | \"NumberCircleFilled3\" | \"NumberCircleFilled4\" | \"NumberCircleFilled5\" | \"NumberCircleFilled6\" | \"NumberCircleFilled7\" | \"NumberCircleFilled8\" | \"NumberCircleFilled9\" | \"Octagon\" | \"OpenMail\" | \"Package\" | \"Paperclip\" | \"PauseCircle\" | \"Pause\" | \"PenTool\" | \"Percent\" | \"PhoneCall\" | \"PhoneForwarded\" | \"PhoneIncoming\" | \"PhoneMissed\" | \"PhoneOff\" | \"PhoneOutgoing\" | \"Phone\" | \"PieChart\" | \"PlayCircle\" | \"Play\" | \"PlusCircle\" | \"PlusSquare\" | \"Plus\" | \"Pocket\" | \"Power\" | \"Printer\" | \"Radio\" | \"RadioChecked\" | \"RadioUnchecked\" | \"RefreshCcw\" | \"RefreshCw\" | \"Repeat\" | \"Rewind\" | \"RotateCcw\" | \"RotateCw\" | \"Rss\" | \"Save\" | \"Scissors\" | \"Search\" | \"Send\" | \"Server\" | \"Settings\" | \"SFDR6\" | \"SFDR8\" | \"SFDR9\" | \"Share2\" | \"Share\" | \"ShieldOff\" | \"Shield\" | \"ShoppingBag\" | \"ShoppingCart\" | \"Shuffle\" | \"Sidebar\" | \"SkipBack\" | \"SkipForward\" | \"Slack\" | \"Slash\" | \"Sliders\" | \"Smartphone\" | \"Smile\" | \"Speaker\" | \"Square\" | \"Star\" | \"StarFilled\" | \"StopCircle\" | \"Sun\" | \"Sunrise\" | \"Sunset\" | \"Tablet\" | \"Tag\" | \"Target\" | \"Terminal\" | \"Thermometer\" | \"ThumbsDown\" | \"ThumbsUp\" | \"ToggleLeft\" | \"ToggleRight\" | \"Trash2\" | \"Trash\" | \"Trello\" | \"TrendingDown\" | \"TrendingUp\" | \"Triangle\" | \"Truck\" | \"Tv\" | \"Twitter\" | \"Type\" | \"Umbrella\" | \"Underline\" | \"Unlock\" | \"UploadCloud\" | \"Upload\" | \"UserCheck\" | \"UserMinus\" | \"UserPlus\" | \"UserX\" | \"User\" | \"Users\" | \"VideoOff\" | \"Video\" | \"Voicemail\" | \"Volume1\" | \"Volume2\" | \"VolumeX\" | \"Volume\" | \"Watch\" | \"WifiOff\" | \"Wifi\" | \"Wind\" | \"XCircle\" | \"XCircleFilled\" | \"XSquare\" | \"X\" | \"XDotCom\" | \"Youtube\" | \"ZapOff\" | \"Zap\" | \"ZoomIn\" | \"ZoomOut\"",
+              "value": [
+                {
+                  "value": "\"Activity\""
+                },
+                {
+                  "value": "\"Airplay\""
+                },
+                {
+                  "value": "\"AlertCircle\""
+                },
+                {
+                  "value": "\"AlertOctagon\""
+                },
+                {
+                  "value": "\"AlertTriangle\""
+                },
+                {
+                  "value": "\"AlignCenter\""
+                },
+                {
+                  "value": "\"AlignJustify\""
+                },
+                {
+                  "value": "\"AlignLeft\""
+                },
+                {
+                  "value": "\"AlignRight\""
+                },
+                {
+                  "value": "\"Anchor\""
+                },
+                {
+                  "value": "\"Aperture\""
+                },
+                {
+                  "value": "\"Archive\""
+                },
+                {
+                  "value": "\"ArrowDownCircle\""
+                },
+                {
+                  "value": "\"ArrowDownLeft\""
+                },
+                {
+                  "value": "\"ArrowDownRight\""
+                },
+                {
+                  "value": "\"ArrowDown\""
+                },
+                {
+                  "value": "\"ArrowLeftCircle\""
+                },
+                {
+                  "value": "\"ArrowLeft\""
+                },
+                {
+                  "value": "\"ArrowRightCircle\""
+                },
+                {
+                  "value": "\"ArrowRight\""
+                },
+                {
+                  "value": "\"ArrowUpCircle\""
+                },
+                {
+                  "value": "\"ArrowUpLeft\""
+                },
+                {
+                  "value": "\"ArrowUpRight\""
+                },
+                {
+                  "value": "\"ArrowUp\""
+                },
+                {
+                  "value": "\"Award\""
+                },
+                {
+                  "value": "\"BankID\""
+                },
+                {
+                  "value": "\"BellOff\""
+                },
+                {
+                  "value": "\"Bell\""
+                },
+                {
+                  "value": "\"Bluetooth\""
+                },
+                {
+                  "value": "\"Bold\""
+                },
+                {
+                  "value": "\"BookOpen\""
+                },
+                {
+                  "value": "\"Book\""
+                },
+                {
+                  "value": "\"Bookmark\""
+                },
+                {
+                  "value": "\"Box\""
+                },
+                {
+                  "value": "\"Briefcase\""
+                },
+                {
+                  "value": "\"Calendar\""
+                },
+                {
+                  "value": "\"CameraOff\""
+                },
+                {
+                  "value": "\"Camera\""
+                },
+                {
+                  "value": "\"Cast\""
+                },
+                {
+                  "value": "\"CheckCircle\""
+                },
+                {
+                  "value": "\"CheckCircleFilled\""
+                },
+                {
+                  "value": "\"CheckSquare\""
+                },
+                {
+                  "value": "\"CheckSquareFilled\""
+                },
+                {
+                  "value": "\"Check\""
+                },
+                {
+                  "value": "\"ChevronDown\""
+                },
+                {
+                  "value": "\"ChevronLeft\""
+                },
+                {
+                  "value": "\"ChevronRight\""
+                },
+                {
+                  "value": "\"ChevronUp\""
+                },
+                {
+                  "value": "\"Clipboard\""
+                },
+                {
+                  "value": "\"Clock\""
+                },
+                {
+                  "value": "\"CloudDrizzle\""
+                },
+                {
+                  "value": "\"CloudLightning\""
+                },
+                {
+                  "value": "\"CloudOff\""
+                },
+                {
+                  "value": "\"CloudRain\""
+                },
+                {
+                  "value": "\"CloudSnow\""
+                },
+                {
+                  "value": "\"Cloud\""
+                },
+                {
+                  "value": "\"Co2Index\""
+                },
+                {
+                  "value": "\"Code\""
+                },
+                {
+                  "value": "\"Coffee\""
+                },
+                {
+                  "value": "\"Command\""
+                },
+                {
+                  "value": "\"Compass\""
+                },
+                {
+                  "value": "\"Copy\""
+                },
+                {
+                  "value": "\"CornerDownLeft\""
+                },
+                {
+                  "value": "\"CornerDownRight\""
+                },
+                {
+                  "value": "\"CornerLeftDown\""
+                },
+                {
+                  "value": "\"CornerLeftUp\""
+                },
+                {
+                  "value": "\"CornerRightDown\""
+                },
+                {
+                  "value": "\"CornerRightUp\""
+                },
+                {
+                  "value": "\"CornerUpLeft\""
+                },
+                {
+                  "value": "\"CornerUpRight\""
+                },
+                {
+                  "value": "\"Cpu\""
+                },
+                {
+                  "value": "\"CreditCard\""
+                },
+                {
+                  "value": "\"Crop\""
+                },
+                {
+                  "value": "\"Crosshair\""
+                },
+                {
+                  "value": "\"Database\""
+                },
+                {
+                  "value": "\"Delete\""
+                },
+                {
+                  "value": "\"Disc\""
+                },
+                {
+                  "value": "\"Document\""
+                },
+                {
+                  "value": "\"DollarSign\""
+                },
+                {
+                  "value": "\"DownloadCloud\""
+                },
+                {
+                  "value": "\"Download\""
+                },
+                {
+                  "value": "\"Droplet\""
+                },
+                {
+                  "value": "\"Edit2\""
+                },
+                {
+                  "value": "\"Edit3\""
+                },
+                {
+                  "value": "\"Edit\""
+                },
+                {
+                  "value": "\"ExternalLink\""
+                },
+                {
+                  "value": "\"EyeOff\""
+                },
+                {
+                  "value": "\"Eye\""
+                },
+                {
+                  "value": "\"Facebook\""
+                },
+                {
+                  "value": "\"FastForward\""
+                },
+                {
+                  "value": "\"Feather\""
+                },
+                {
+                  "value": "\"FileDoc\""
+                },
+                {
+                  "value": "\"FileImg\""
+                },
+                {
+                  "value": "\"FileMinus\""
+                },
+                {
+                  "value": "\"FilePdf\""
+                },
+                {
+                  "value": "\"FilePlus\""
+                },
+                {
+                  "value": "\"FileText\""
+                },
+                {
+                  "value": "\"FileXls\""
+                },
+                {
+                  "value": "\"FileXml\""
+                },
+                {
+                  "value": "\"File\""
+                },
+                {
+                  "value": "\"Film\""
+                },
+                {
+                  "value": "\"Filter\""
+                },
+                {
+                  "value": "\"Flag\""
+                },
+                {
+                  "value": "\"FolderMinus\""
+                },
+                {
+                  "value": "\"FolderPlus\""
+                },
+                {
+                  "value": "\"Folder\""
+                },
+                {
+                  "value": "\"Frown\""
+                },
+                {
+                  "value": "\"Gift\""
+                },
+                {
+                  "value": "\"GitBranch\""
+                },
+                {
+                  "value": "\"GitCommit\""
+                },
+                {
+                  "value": "\"GitMerge\""
+                },
+                {
+                  "value": "\"GitPullRequest\""
+                },
+                {
+                  "value": "\"GitHub\""
+                },
+                {
+                  "value": "\"Gitlab\""
+                },
+                {
+                  "value": "\"Globe\""
+                },
+                {
+                  "value": "\"GlobeEmpty\""
+                },
+                {
+                  "value": "\"Grid\""
+                },
+                {
+                  "value": "\"HardDrive\""
+                },
+                {
+                  "value": "\"Hash\""
+                },
+                {
+                  "value": "\"Headphones\""
+                },
+                {
+                  "value": "\"Heart\""
+                },
+                {
+                  "value": "\"HelpCircle\""
+                },
+                {
+                  "value": "\"Home\""
+                },
+                {
+                  "value": "\"Image\""
+                },
+                {
+                  "value": "\"Inbox\""
+                },
+                {
+                  "value": "\"Info\""
+                },
+                {
+                  "value": "\"Instagram\""
+                },
+                {
+                  "value": "\"Italic\""
+                },
+                {
+                  "value": "\"Key\""
+                },
+                {
+                  "value": "\"Layers\""
+                },
+                {
+                  "value": "\"Layout\""
+                },
+                {
+                  "value": "\"LifeBuoy\""
+                },
+                {
+                  "value": "\"Link2\""
+                },
+                {
+                  "value": "\"Link\""
+                },
+                {
+                  "value": "\"Linkedin\""
+                },
+                {
+                  "value": "\"List\""
+                },
+                {
+                  "value": "\"Loader\""
+                },
+                {
+                  "value": "\"Lock\""
+                },
+                {
+                  "value": "\"LogIn\""
+                },
+                {
+                  "value": "\"LogOut\""
+                },
+                {
+                  "value": "\"LogOut2\""
+                },
+                {
+                  "value": "\"Mail\""
+                },
+                {
+                  "value": "\"MapPin\""
+                },
+                {
+                  "value": "\"Map\""
+                },
+                {
+                  "value": "\"Maximize2\""
+                },
+                {
+                  "value": "\"Maximize\""
+                },
+                {
+                  "value": "\"Meh\""
+                },
+                {
+                  "value": "\"Menu\""
+                },
+                {
+                  "value": "\"Message\""
+                },
+                {
+                  "value": "\"MessageCircle\""
+                },
+                {
+                  "value": "\"MessageSquare\""
+                },
+                {
+                  "value": "\"MicOff\""
+                },
+                {
+                  "value": "\"Mic\""
+                },
+                {
+                  "value": "\"Minimize2\""
+                },
+                {
+                  "value": "\"Minimize\""
+                },
+                {
+                  "value": "\"MinusCircle\""
+                },
+                {
+                  "value": "\"MinusSquare\""
+                },
+                {
+                  "value": "\"Minus\""
+                },
+                {
+                  "value": "\"Monitor\""
+                },
+                {
+                  "value": "\"Moon\""
+                },
+                {
+                  "value": "\"MoreHorizontal\""
+                },
+                {
+                  "value": "\"MoreVertical\""
+                },
+                {
+                  "value": "\"Move\""
+                },
+                {
+                  "value": "\"Music\""
+                },
+                {
+                  "value": "\"Navigation2\""
+                },
+                {
+                  "value": "\"Navigation\""
+                },
+                {
+                  "value": "\"NumberCircle0\""
+                },
+                {
+                  "value": "\"NumberCircle1\""
+                },
+                {
+                  "value": "\"NumberCircle2\""
+                },
+                {
+                  "value": "\"NumberCircle3\""
+                },
+                {
+                  "value": "\"NumberCircle4\""
+                },
+                {
+                  "value": "\"NumberCircle5\""
+                },
+                {
+                  "value": "\"NumberCircle6\""
+                },
+                {
+                  "value": "\"NumberCircle7\""
+                },
+                {
+                  "value": "\"NumberCircle8\""
+                },
+                {
+                  "value": "\"NumberCircle9\""
+                },
+                {
+                  "value": "\"NumberCircleFilled0\""
+                },
+                {
+                  "value": "\"NumberCircleFilled1\""
+                },
+                {
+                  "value": "\"NumberCircleFilled2\""
+                },
+                {
+                  "value": "\"NumberCircleFilled3\""
+                },
+                {
+                  "value": "\"NumberCircleFilled4\""
+                },
+                {
+                  "value": "\"NumberCircleFilled5\""
+                },
+                {
+                  "value": "\"NumberCircleFilled6\""
+                },
+                {
+                  "value": "\"NumberCircleFilled7\""
+                },
+                {
+                  "value": "\"NumberCircleFilled8\""
+                },
+                {
+                  "value": "\"NumberCircleFilled9\""
+                },
+                {
+                  "value": "\"Octagon\""
+                },
+                {
+                  "value": "\"OpenMail\""
+                },
+                {
+                  "value": "\"Package\""
+                },
+                {
+                  "value": "\"Paperclip\""
+                },
+                {
+                  "value": "\"PauseCircle\""
+                },
+                {
+                  "value": "\"Pause\""
+                },
+                {
+                  "value": "\"PenTool\""
+                },
+                {
+                  "value": "\"Percent\""
+                },
+                {
+                  "value": "\"PhoneCall\""
+                },
+                {
+                  "value": "\"PhoneForwarded\""
+                },
+                {
+                  "value": "\"PhoneIncoming\""
+                },
+                {
+                  "value": "\"PhoneMissed\""
+                },
+                {
+                  "value": "\"PhoneOff\""
+                },
+                {
+                  "value": "\"PhoneOutgoing\""
+                },
+                {
+                  "value": "\"Phone\""
+                },
+                {
+                  "value": "\"PieChart\""
+                },
+                {
+                  "value": "\"PlayCircle\""
+                },
+                {
+                  "value": "\"Play\""
+                },
+                {
+                  "value": "\"PlusCircle\""
+                },
+                {
+                  "value": "\"PlusSquare\""
+                },
+                {
+                  "value": "\"Plus\""
+                },
+                {
+                  "value": "\"Pocket\""
+                },
+                {
+                  "value": "\"Power\""
+                },
+                {
+                  "value": "\"Printer\""
+                },
+                {
+                  "value": "\"Radio\""
+                },
+                {
+                  "value": "\"RadioChecked\""
+                },
+                {
+                  "value": "\"RadioUnchecked\""
+                },
+                {
+                  "value": "\"RefreshCcw\""
+                },
+                {
+                  "value": "\"RefreshCw\""
+                },
+                {
+                  "value": "\"Repeat\""
+                },
+                {
+                  "value": "\"Rewind\""
+                },
+                {
+                  "value": "\"RotateCcw\""
+                },
+                {
+                  "value": "\"RotateCw\""
+                },
+                {
+                  "value": "\"Rss\""
+                },
+                {
+                  "value": "\"Save\""
+                },
+                {
+                  "value": "\"Scissors\""
+                },
+                {
+                  "value": "\"Search\""
+                },
+                {
+                  "value": "\"Send\""
+                },
+                {
+                  "value": "\"Server\""
+                },
+                {
+                  "value": "\"Settings\""
+                },
+                {
+                  "value": "\"SFDR6\""
+                },
+                {
+                  "value": "\"SFDR8\""
+                },
+                {
+                  "value": "\"SFDR9\""
+                },
+                {
+                  "value": "\"Share2\""
+                },
+                {
+                  "value": "\"Share\""
+                },
+                {
+                  "value": "\"ShieldOff\""
+                },
+                {
+                  "value": "\"Shield\""
+                },
+                {
+                  "value": "\"ShoppingBag\""
+                },
+                {
+                  "value": "\"ShoppingCart\""
+                },
+                {
+                  "value": "\"Shuffle\""
+                },
+                {
+                  "value": "\"Sidebar\""
+                },
+                {
+                  "value": "\"SkipBack\""
+                },
+                {
+                  "value": "\"SkipForward\""
+                },
+                {
+                  "value": "\"Slack\""
+                },
+                {
+                  "value": "\"Slash\""
+                },
+                {
+                  "value": "\"Sliders\""
+                },
+                {
+                  "value": "\"Smartphone\""
+                },
+                {
+                  "value": "\"Smile\""
+                },
+                {
+                  "value": "\"Speaker\""
+                },
+                {
+                  "value": "\"Square\""
+                },
+                {
+                  "value": "\"Star\""
+                },
+                {
+                  "value": "\"StarFilled\""
+                },
+                {
+                  "value": "\"StopCircle\""
+                },
+                {
+                  "value": "\"Sun\""
+                },
+                {
+                  "value": "\"Sunrise\""
+                },
+                {
+                  "value": "\"Sunset\""
+                },
+                {
+                  "value": "\"Tablet\""
+                },
+                {
+                  "value": "\"Tag\""
+                },
+                {
+                  "value": "\"Target\""
+                },
+                {
+                  "value": "\"Terminal\""
+                },
+                {
+                  "value": "\"Thermometer\""
+                },
+                {
+                  "value": "\"ThumbsDown\""
+                },
+                {
+                  "value": "\"ThumbsUp\""
+                },
+                {
+                  "value": "\"ToggleLeft\""
+                },
+                {
+                  "value": "\"ToggleRight\""
+                },
+                {
+                  "value": "\"Trash2\""
+                },
+                {
+                  "value": "\"Trash\""
+                },
+                {
+                  "value": "\"Trello\""
+                },
+                {
+                  "value": "\"TrendingDown\""
+                },
+                {
+                  "value": "\"TrendingUp\""
+                },
+                {
+                  "value": "\"Triangle\""
+                },
+                {
+                  "value": "\"Truck\""
+                },
+                {
+                  "value": "\"Tv\""
+                },
+                {
+                  "value": "\"Twitter\""
+                },
+                {
+                  "value": "\"Type\""
+                },
+                {
+                  "value": "\"Umbrella\""
+                },
+                {
+                  "value": "\"Underline\""
+                },
+                {
+                  "value": "\"Unlock\""
+                },
+                {
+                  "value": "\"UploadCloud\""
+                },
+                {
+                  "value": "\"Upload\""
+                },
+                {
+                  "value": "\"UserCheck\""
+                },
+                {
+                  "value": "\"UserMinus\""
+                },
+                {
+                  "value": "\"UserPlus\""
+                },
+                {
+                  "value": "\"UserX\""
+                },
+                {
+                  "value": "\"User\""
+                },
+                {
+                  "value": "\"Users\""
+                },
+                {
+                  "value": "\"VideoOff\""
+                },
+                {
+                  "value": "\"Video\""
+                },
+                {
+                  "value": "\"Voicemail\""
+                },
+                {
+                  "value": "\"Volume1\""
+                },
+                {
+                  "value": "\"Volume2\""
+                },
+                {
+                  "value": "\"VolumeX\""
+                },
+                {
+                  "value": "\"Volume\""
+                },
+                {
+                  "value": "\"Watch\""
+                },
+                {
+                  "value": "\"WifiOff\""
+                },
+                {
+                  "value": "\"Wifi\""
+                },
+                {
+                  "value": "\"Wind\""
+                },
+                {
+                  "value": "\"XCircle\""
+                },
+                {
+                  "value": "\"XCircleFilled\""
+                },
+                {
+                  "value": "\"XSquare\""
+                },
+                {
+                  "value": "\"X\""
+                },
+                {
+                  "value": "\"XDotCom\""
+                },
+                {
+                  "value": "\"Youtube\""
+                },
+                {
+                  "value": "\"ZapOff\""
+                },
+                {
+                  "value": "\"Zap\""
+                },
+                {
+                  "value": "\"ZoomIn\""
+                },
+                {
+                  "value": "\"ZoomOut\""
+                }
+              ]
+            }
+          },
+          "loading": {
+            "defaultValue": null,
+            "description": "Should the loading animation be shown?",
+            "name": "loading",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "autofocus": {
+            "defaultValue": null,
+            "description": "Determines if the button should be focused on render",
+            "name": "autofocus",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "size": {
+            "defaultValue": {
+              "value": "default"
+            },
+            "description": "What size the button should be rendered in",
+            "name": "size",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"mini\" | \"default\" | \"mega\"",
+              "value": [
+                {
+                  "value": "\"mini\""
+                },
+                {
+                  "value": "\"default\""
+                },
+                {
+                  "value": "\"mega\""
+                }
+              ]
+            }
+          },
+          "ariaAttributes": {
+            "defaultValue": null,
+            "description": "Optional aria props for the element to improve accessibility",
+            "name": "ariaAttributes",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "{ ariaLabel?: string; ariaControls?: string; ariaHasPopup?: boolean | undefined; ariaExpanded?: boolean | undefined; } | undefined"
+            }
+          },
+          "faux": {
+            "defaultValue": null,
+            "description": "Determines if the button should be rendered without a semantic HTML element, i.e a fake button. Useful when you want to style a button-like element that is not a button.",
+            "name": "faux",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "dataAttributes": {
+            "defaultValue": null,
+            "description": "Optional data attributes to add to the button element",
+            "name": "dataAttributes",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "HTMLDataAttributes"
+            }
+          },
+          "className": {
+            "defaultValue": null,
+            "description": "Optional class name",
+            "name": "className",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "string"
+            }
+          },
+          "onClick": {
+            "defaultValue": null,
+            "description": "If onClick is provided, the button will be rendered as a button element",
+            "name": "onClick",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "((e: MouseEvent<Element, MouseEvent>) => void)"
+            }
+          },
+          "href": {
+            "defaultValue": null,
+            "description": "If href is provided, the button will be rendered as an anchor element",
+            "name": "href",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "string"
+            }
+          },
+          "preventTargetBlank": {
+            "defaultValue": null,
+            "description": "For external links, prevent target=\"_blank\" from being added",
+            "name": "preventTargetBlank",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "forceTargetBlank": {
+            "defaultValue": null,
+            "description": "Force target=\"_blank\" to be added to the link",
+            "name": "forceTargetBlank",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "fillWidth": {
+            "defaultValue": null,
+            "description": "If true, the button will drop fit content and fill up available space",
+            "name": "fillWidth",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          }
+        },
+        "exportName": "MainButton"
+      }
+    },
+    "components-buttons-navigationbutton": {
+      "id": "components-buttons-navigationbutton",
+      "name": "NavigationButton",
+      "path": "./src/components/NavigationButton/NavigationButton.stories.tsx",
+      "stories": [
+        {
+          "id": "components-buttons-navigationbutton--primary",
+          "name": "Primary",
+          "snippet": "const Primary = () => <NavigationButton onClick={fn()} variant=\"primary\" disabled={false} inverted={false} />;"
+        },
+        {
+          "id": "components-buttons-navigationbutton--primary-disabled",
+          "name": "Primary Disabled",
+          "snippet": "const PrimaryDisabled = () => <NavigationButton onClick={fn()} variant=\"primary\" disabled inverted={false} />;"
+        }
+      ],
+      "import": "import { NavigationButton } from \"@spp-technology/sppackel\";",
+      "jsDocTags": {},
+      "description": "NavigationButton - Button used for navigation purposes",
+      "reactDocgenTypescript": {
+        "tags": {},
+        "filePath": "/home/runner/work/SPPackel/SPPackel/lib/components/NavigationButton/index.ts",
+        "description": "NavigationButton - Button used for navigation purposes",
+        "displayName": "NavigationButton",
+        "methods": [],
+        "props": {
+          "variant": {
+            "defaultValue": {
+              "value": "primary"
+            },
+            "description": "Decides the visual variant of the icon button",
+            "name": "variant",
+            "parent": {
+              "fileName": "SPPackel/lib/components/NavigationButton/NavigationButton.tsx",
+              "name": "NavigationButtonProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/components/NavigationButton/NavigationButton.tsx",
+                "name": "NavigationButtonProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"primary\" | \"semi-transparent\"",
+              "value": [
+                {
+                  "value": "\"primary\""
+                },
+                {
+                  "value": "\"semi-transparent\""
+                }
+              ]
+            }
+          },
+          "icon": {
+            "defaultValue": null,
+            "description": "The icon to display",
+            "name": "icon",
+            "parent": {
+              "fileName": "SPPackel/lib/components/NavigationButton/NavigationButton.tsx",
+              "name": "NavigationButtonProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/components/NavigationButton/NavigationButton.tsx",
+                "name": "NavigationButtonProps"
+              }
+            ],
+            "required": true,
+            "type": {
+              "name": "enum",
+              "raw": "\"Activity\" | \"Airplay\" | \"AlertCircle\" | \"AlertOctagon\" | \"AlertTriangle\" | \"AlignCenter\" | \"AlignJustify\" | \"AlignLeft\" | \"AlignRight\" | \"Anchor\" | \"Aperture\" | \"Archive\" | \"ArrowDownCircle\" | \"ArrowDownLeft\" | \"ArrowDownRight\" | \"ArrowDown\" | \"ArrowLeftCircle\" | \"ArrowLeft\" | \"ArrowRightCircle\" | \"ArrowRight\" | \"ArrowUpCircle\" | \"ArrowUpLeft\" | \"ArrowUpRight\" | \"ArrowUp\" | \"Award\" | \"BankID\" | \"BellOff\" | \"Bell\" | \"Bluetooth\" | \"Bold\" | \"BookOpen\" | \"Book\" | \"Bookmark\" | \"Box\" | \"Briefcase\" | \"Calendar\" | \"CameraOff\" | \"Camera\" | \"Cast\" | \"CheckCircle\" | \"CheckCircleFilled\" | \"CheckSquare\" | \"CheckSquareFilled\" | \"Check\" | \"ChevronDown\" | \"ChevronLeft\" | \"ChevronRight\" | \"ChevronUp\" | \"Clipboard\" | \"Clock\" | \"CloudDrizzle\" | \"CloudLightning\" | \"CloudOff\" | \"CloudRain\" | \"CloudSnow\" | \"Cloud\" | \"Co2Index\" | \"Code\" | \"Coffee\" | \"Command\" | \"Compass\" | \"Copy\" | \"CornerDownLeft\" | \"CornerDownRight\" | \"CornerLeftDown\" | \"CornerLeftUp\" | \"CornerRightDown\" | \"CornerRightUp\" | \"CornerUpLeft\" | \"CornerUpRight\" | \"Cpu\" | \"CreditCard\" | \"Crop\" | \"Crosshair\" | \"Database\" | \"Delete\" | \"Disc\" | \"Document\" | \"DollarSign\" | \"DownloadCloud\" | \"Download\" | \"Droplet\" | \"Edit2\" | \"Edit3\" | \"Edit\" | \"ExternalLink\" | \"EyeOff\" | \"Eye\" | \"Facebook\" | \"FastForward\" | \"Feather\" | \"FileDoc\" | \"FileImg\" | \"FileMinus\" | \"FilePdf\" | \"FilePlus\" | \"FileText\" | \"FileXls\" | \"FileXml\" | \"File\" | \"Film\" | \"Filter\" | \"Flag\" | \"FolderMinus\" | \"FolderPlus\" | \"Folder\" | \"Frown\" | \"Gift\" | \"GitBranch\" | \"GitCommit\" | \"GitMerge\" | \"GitPullRequest\" | \"GitHub\" | \"Gitlab\" | \"Globe\" | \"GlobeEmpty\" | \"Grid\" | \"HardDrive\" | \"Hash\" | \"Headphones\" | \"Heart\" | \"HelpCircle\" | \"Home\" | \"Image\" | \"Inbox\" | \"Info\" | \"Instagram\" | \"Italic\" | \"Key\" | \"Layers\" | \"Layout\" | \"LifeBuoy\" | \"Link2\" | \"Link\" | \"Linkedin\" | \"List\" | \"Loader\" | \"Lock\" | \"LogIn\" | \"LogOut\" | \"LogOut2\" | \"Mail\" | \"MapPin\" | \"Map\" | \"Maximize2\" | \"Maximize\" | \"Meh\" | \"Menu\" | \"Message\" | \"MessageCircle\" | \"MessageSquare\" | \"MicOff\" | \"Mic\" | \"Minimize2\" | \"Minimize\" | \"MinusCircle\" | \"MinusSquare\" | \"Minus\" | \"Monitor\" | \"Moon\" | \"MoreHorizontal\" | \"MoreVertical\" | \"Move\" | \"Music\" | \"Navigation2\" | \"Navigation\" | \"NumberCircle0\" | \"NumberCircle1\" | \"NumberCircle2\" | \"NumberCircle3\" | \"NumberCircle4\" | \"NumberCircle5\" | \"NumberCircle6\" | \"NumberCircle7\" | \"NumberCircle8\" | \"NumberCircle9\" | \"NumberCircleFilled0\" | \"NumberCircleFilled1\" | \"NumberCircleFilled2\" | \"NumberCircleFilled3\" | \"NumberCircleFilled4\" | \"NumberCircleFilled5\" | \"NumberCircleFilled6\" | \"NumberCircleFilled7\" | \"NumberCircleFilled8\" | \"NumberCircleFilled9\" | \"Octagon\" | \"OpenMail\" | \"Package\" | \"Paperclip\" | \"PauseCircle\" | \"Pause\" | \"PenTool\" | \"Percent\" | \"PhoneCall\" | \"PhoneForwarded\" | \"PhoneIncoming\" | \"PhoneMissed\" | \"PhoneOff\" | \"PhoneOutgoing\" | \"Phone\" | \"PieChart\" | \"PlayCircle\" | \"Play\" | \"PlusCircle\" | \"PlusSquare\" | \"Plus\" | \"Pocket\" | \"Power\" | \"Printer\" | \"Radio\" | \"RadioChecked\" | \"RadioUnchecked\" | \"RefreshCcw\" | \"RefreshCw\" | \"Repeat\" | \"Rewind\" | \"RotateCcw\" | \"RotateCw\" | \"Rss\" | \"Save\" | \"Scissors\" | \"Search\" | \"Send\" | \"Server\" | \"Settings\" | \"SFDR6\" | \"SFDR8\" | \"SFDR9\" | \"Share2\" | \"Share\" | \"ShieldOff\" | \"Shield\" | \"ShoppingBag\" | \"ShoppingCart\" | \"Shuffle\" | \"Sidebar\" | \"SkipBack\" | \"SkipForward\" | \"Slack\" | \"Slash\" | \"Sliders\" | \"Smartphone\" | \"Smile\" | \"Speaker\" | \"Square\" | \"Star\" | \"StarFilled\" | \"StopCircle\" | \"Sun\" | \"Sunrise\" | \"Sunset\" | \"Tablet\" | \"Tag\" | \"Target\" | \"Terminal\" | \"Thermometer\" | \"ThumbsDown\" | \"ThumbsUp\" | \"ToggleLeft\" | \"ToggleRight\" | \"Trash2\" | \"Trash\" | \"Trello\" | \"TrendingDown\" | \"TrendingUp\" | \"Triangle\" | \"Truck\" | \"Tv\" | \"Twitter\" | \"Type\" | \"Umbrella\" | \"Underline\" | \"Unlock\" | \"UploadCloud\" | \"Upload\" | \"UserCheck\" | \"UserMinus\" | \"UserPlus\" | \"UserX\" | \"User\" | \"Users\" | \"VideoOff\" | \"Video\" | \"Voicemail\" | \"Volume1\" | \"Volume2\" | \"VolumeX\" | \"Volume\" | \"Watch\" | \"WifiOff\" | \"Wifi\" | \"Wind\" | \"XCircle\" | \"XCircleFilled\" | \"XSquare\" | \"X\" | \"XDotCom\" | \"Youtube\" | \"ZapOff\" | \"Zap\" | \"ZoomIn\" | \"ZoomOut\"",
+              "value": [
+                {
+                  "value": "\"Activity\""
+                },
+                {
+                  "value": "\"Airplay\""
+                },
+                {
+                  "value": "\"AlertCircle\""
+                },
+                {
+                  "value": "\"AlertOctagon\""
+                },
+                {
+                  "value": "\"AlertTriangle\""
+                },
+                {
+                  "value": "\"AlignCenter\""
+                },
+                {
+                  "value": "\"AlignJustify\""
+                },
+                {
+                  "value": "\"AlignLeft\""
+                },
+                {
+                  "value": "\"AlignRight\""
+                },
+                {
+                  "value": "\"Anchor\""
+                },
+                {
+                  "value": "\"Aperture\""
+                },
+                {
+                  "value": "\"Archive\""
+                },
+                {
+                  "value": "\"ArrowDownCircle\""
+                },
+                {
+                  "value": "\"ArrowDownLeft\""
+                },
+                {
+                  "value": "\"ArrowDownRight\""
+                },
+                {
+                  "value": "\"ArrowDown\""
+                },
+                {
+                  "value": "\"ArrowLeftCircle\""
+                },
+                {
+                  "value": "\"ArrowLeft\""
+                },
+                {
+                  "value": "\"ArrowRightCircle\""
+                },
+                {
+                  "value": "\"ArrowRight\""
+                },
+                {
+                  "value": "\"ArrowUpCircle\""
+                },
+                {
+                  "value": "\"ArrowUpLeft\""
+                },
+                {
+                  "value": "\"ArrowUpRight\""
+                },
+                {
+                  "value": "\"ArrowUp\""
+                },
+                {
+                  "value": "\"Award\""
+                },
+                {
+                  "value": "\"BankID\""
+                },
+                {
+                  "value": "\"BellOff\""
+                },
+                {
+                  "value": "\"Bell\""
+                },
+                {
+                  "value": "\"Bluetooth\""
+                },
+                {
+                  "value": "\"Bold\""
+                },
+                {
+                  "value": "\"BookOpen\""
+                },
+                {
+                  "value": "\"Book\""
+                },
+                {
+                  "value": "\"Bookmark\""
+                },
+                {
+                  "value": "\"Box\""
+                },
+                {
+                  "value": "\"Briefcase\""
+                },
+                {
+                  "value": "\"Calendar\""
+                },
+                {
+                  "value": "\"CameraOff\""
+                },
+                {
+                  "value": "\"Camera\""
+                },
+                {
+                  "value": "\"Cast\""
+                },
+                {
+                  "value": "\"CheckCircle\""
+                },
+                {
+                  "value": "\"CheckCircleFilled\""
+                },
+                {
+                  "value": "\"CheckSquare\""
+                },
+                {
+                  "value": "\"CheckSquareFilled\""
+                },
+                {
+                  "value": "\"Check\""
+                },
+                {
+                  "value": "\"ChevronDown\""
+                },
+                {
+                  "value": "\"ChevronLeft\""
+                },
+                {
+                  "value": "\"ChevronRight\""
+                },
+                {
+                  "value": "\"ChevronUp\""
+                },
+                {
+                  "value": "\"Clipboard\""
+                },
+                {
+                  "value": "\"Clock\""
+                },
+                {
+                  "value": "\"CloudDrizzle\""
+                },
+                {
+                  "value": "\"CloudLightning\""
+                },
+                {
+                  "value": "\"CloudOff\""
+                },
+                {
+                  "value": "\"CloudRain\""
+                },
+                {
+                  "value": "\"CloudSnow\""
+                },
+                {
+                  "value": "\"Cloud\""
+                },
+                {
+                  "value": "\"Co2Index\""
+                },
+                {
+                  "value": "\"Code\""
+                },
+                {
+                  "value": "\"Coffee\""
+                },
+                {
+                  "value": "\"Command\""
+                },
+                {
+                  "value": "\"Compass\""
+                },
+                {
+                  "value": "\"Copy\""
+                },
+                {
+                  "value": "\"CornerDownLeft\""
+                },
+                {
+                  "value": "\"CornerDownRight\""
+                },
+                {
+                  "value": "\"CornerLeftDown\""
+                },
+                {
+                  "value": "\"CornerLeftUp\""
+                },
+                {
+                  "value": "\"CornerRightDown\""
+                },
+                {
+                  "value": "\"CornerRightUp\""
+                },
+                {
+                  "value": "\"CornerUpLeft\""
+                },
+                {
+                  "value": "\"CornerUpRight\""
+                },
+                {
+                  "value": "\"Cpu\""
+                },
+                {
+                  "value": "\"CreditCard\""
+                },
+                {
+                  "value": "\"Crop\""
+                },
+                {
+                  "value": "\"Crosshair\""
+                },
+                {
+                  "value": "\"Database\""
+                },
+                {
+                  "value": "\"Delete\""
+                },
+                {
+                  "value": "\"Disc\""
+                },
+                {
+                  "value": "\"Document\""
+                },
+                {
+                  "value": "\"DollarSign\""
+                },
+                {
+                  "value": "\"DownloadCloud\""
+                },
+                {
+                  "value": "\"Download\""
+                },
+                {
+                  "value": "\"Droplet\""
+                },
+                {
+                  "value": "\"Edit2\""
+                },
+                {
+                  "value": "\"Edit3\""
+                },
+                {
+                  "value": "\"Edit\""
+                },
+                {
+                  "value": "\"ExternalLink\""
+                },
+                {
+                  "value": "\"EyeOff\""
+                },
+                {
+                  "value": "\"Eye\""
+                },
+                {
+                  "value": "\"Facebook\""
+                },
+                {
+                  "value": "\"FastForward\""
+                },
+                {
+                  "value": "\"Feather\""
+                },
+                {
+                  "value": "\"FileDoc\""
+                },
+                {
+                  "value": "\"FileImg\""
+                },
+                {
+                  "value": "\"FileMinus\""
+                },
+                {
+                  "value": "\"FilePdf\""
+                },
+                {
+                  "value": "\"FilePlus\""
+                },
+                {
+                  "value": "\"FileText\""
+                },
+                {
+                  "value": "\"FileXls\""
+                },
+                {
+                  "value": "\"FileXml\""
+                },
+                {
+                  "value": "\"File\""
+                },
+                {
+                  "value": "\"Film\""
+                },
+                {
+                  "value": "\"Filter\""
+                },
+                {
+                  "value": "\"Flag\""
+                },
+                {
+                  "value": "\"FolderMinus\""
+                },
+                {
+                  "value": "\"FolderPlus\""
+                },
+                {
+                  "value": "\"Folder\""
+                },
+                {
+                  "value": "\"Frown\""
+                },
+                {
+                  "value": "\"Gift\""
+                },
+                {
+                  "value": "\"GitBranch\""
+                },
+                {
+                  "value": "\"GitCommit\""
+                },
+                {
+                  "value": "\"GitMerge\""
+                },
+                {
+                  "value": "\"GitPullRequest\""
+                },
+                {
+                  "value": "\"GitHub\""
+                },
+                {
+                  "value": "\"Gitlab\""
+                },
+                {
+                  "value": "\"Globe\""
+                },
+                {
+                  "value": "\"GlobeEmpty\""
+                },
+                {
+                  "value": "\"Grid\""
+                },
+                {
+                  "value": "\"HardDrive\""
+                },
+                {
+                  "value": "\"Hash\""
+                },
+                {
+                  "value": "\"Headphones\""
+                },
+                {
+                  "value": "\"Heart\""
+                },
+                {
+                  "value": "\"HelpCircle\""
+                },
+                {
+                  "value": "\"Home\""
+                },
+                {
+                  "value": "\"Image\""
+                },
+                {
+                  "value": "\"Inbox\""
+                },
+                {
+                  "value": "\"Info\""
+                },
+                {
+                  "value": "\"Instagram\""
+                },
+                {
+                  "value": "\"Italic\""
+                },
+                {
+                  "value": "\"Key\""
+                },
+                {
+                  "value": "\"Layers\""
+                },
+                {
+                  "value": "\"Layout\""
+                },
+                {
+                  "value": "\"LifeBuoy\""
+                },
+                {
+                  "value": "\"Link2\""
+                },
+                {
+                  "value": "\"Link\""
+                },
+                {
+                  "value": "\"Linkedin\""
+                },
+                {
+                  "value": "\"List\""
+                },
+                {
+                  "value": "\"Loader\""
+                },
+                {
+                  "value": "\"Lock\""
+                },
+                {
+                  "value": "\"LogIn\""
+                },
+                {
+                  "value": "\"LogOut\""
+                },
+                {
+                  "value": "\"LogOut2\""
+                },
+                {
+                  "value": "\"Mail\""
+                },
+                {
+                  "value": "\"MapPin\""
+                },
+                {
+                  "value": "\"Map\""
+                },
+                {
+                  "value": "\"Maximize2\""
+                },
+                {
+                  "value": "\"Maximize\""
+                },
+                {
+                  "value": "\"Meh\""
+                },
+                {
+                  "value": "\"Menu\""
+                },
+                {
+                  "value": "\"Message\""
+                },
+                {
+                  "value": "\"MessageCircle\""
+                },
+                {
+                  "value": "\"MessageSquare\""
+                },
+                {
+                  "value": "\"MicOff\""
+                },
+                {
+                  "value": "\"Mic\""
+                },
+                {
+                  "value": "\"Minimize2\""
+                },
+                {
+                  "value": "\"Minimize\""
+                },
+                {
+                  "value": "\"MinusCircle\""
+                },
+                {
+                  "value": "\"MinusSquare\""
+                },
+                {
+                  "value": "\"Minus\""
+                },
+                {
+                  "value": "\"Monitor\""
+                },
+                {
+                  "value": "\"Moon\""
+                },
+                {
+                  "value": "\"MoreHorizontal\""
+                },
+                {
+                  "value": "\"MoreVertical\""
+                },
+                {
+                  "value": "\"Move\""
+                },
+                {
+                  "value": "\"Music\""
+                },
+                {
+                  "value": "\"Navigation2\""
+                },
+                {
+                  "value": "\"Navigation\""
+                },
+                {
+                  "value": "\"NumberCircle0\""
+                },
+                {
+                  "value": "\"NumberCircle1\""
+                },
+                {
+                  "value": "\"NumberCircle2\""
+                },
+                {
+                  "value": "\"NumberCircle3\""
+                },
+                {
+                  "value": "\"NumberCircle4\""
+                },
+                {
+                  "value": "\"NumberCircle5\""
+                },
+                {
+                  "value": "\"NumberCircle6\""
+                },
+                {
+                  "value": "\"NumberCircle7\""
+                },
+                {
+                  "value": "\"NumberCircle8\""
+                },
+                {
+                  "value": "\"NumberCircle9\""
+                },
+                {
+                  "value": "\"NumberCircleFilled0\""
+                },
+                {
+                  "value": "\"NumberCircleFilled1\""
+                },
+                {
+                  "value": "\"NumberCircleFilled2\""
+                },
+                {
+                  "value": "\"NumberCircleFilled3\""
+                },
+                {
+                  "value": "\"NumberCircleFilled4\""
+                },
+                {
+                  "value": "\"NumberCircleFilled5\""
+                },
+                {
+                  "value": "\"NumberCircleFilled6\""
+                },
+                {
+                  "value": "\"NumberCircleFilled7\""
+                },
+                {
+                  "value": "\"NumberCircleFilled8\""
+                },
+                {
+                  "value": "\"NumberCircleFilled9\""
+                },
+                {
+                  "value": "\"Octagon\""
+                },
+                {
+                  "value": "\"OpenMail\""
+                },
+                {
+                  "value": "\"Package\""
+                },
+                {
+                  "value": "\"Paperclip\""
+                },
+                {
+                  "value": "\"PauseCircle\""
+                },
+                {
+                  "value": "\"Pause\""
+                },
+                {
+                  "value": "\"PenTool\""
+                },
+                {
+                  "value": "\"Percent\""
+                },
+                {
+                  "value": "\"PhoneCall\""
+                },
+                {
+                  "value": "\"PhoneForwarded\""
+                },
+                {
+                  "value": "\"PhoneIncoming\""
+                },
+                {
+                  "value": "\"PhoneMissed\""
+                },
+                {
+                  "value": "\"PhoneOff\""
+                },
+                {
+                  "value": "\"PhoneOutgoing\""
+                },
+                {
+                  "value": "\"Phone\""
+                },
+                {
+                  "value": "\"PieChart\""
+                },
+                {
+                  "value": "\"PlayCircle\""
+                },
+                {
+                  "value": "\"Play\""
+                },
+                {
+                  "value": "\"PlusCircle\""
+                },
+                {
+                  "value": "\"PlusSquare\""
+                },
+                {
+                  "value": "\"Plus\""
+                },
+                {
+                  "value": "\"Pocket\""
+                },
+                {
+                  "value": "\"Power\""
+                },
+                {
+                  "value": "\"Printer\""
+                },
+                {
+                  "value": "\"Radio\""
+                },
+                {
+                  "value": "\"RadioChecked\""
+                },
+                {
+                  "value": "\"RadioUnchecked\""
+                },
+                {
+                  "value": "\"RefreshCcw\""
+                },
+                {
+                  "value": "\"RefreshCw\""
+                },
+                {
+                  "value": "\"Repeat\""
+                },
+                {
+                  "value": "\"Rewind\""
+                },
+                {
+                  "value": "\"RotateCcw\""
+                },
+                {
+                  "value": "\"RotateCw\""
+                },
+                {
+                  "value": "\"Rss\""
+                },
+                {
+                  "value": "\"Save\""
+                },
+                {
+                  "value": "\"Scissors\""
+                },
+                {
+                  "value": "\"Search\""
+                },
+                {
+                  "value": "\"Send\""
+                },
+                {
+                  "value": "\"Server\""
+                },
+                {
+                  "value": "\"Settings\""
+                },
+                {
+                  "value": "\"SFDR6\""
+                },
+                {
+                  "value": "\"SFDR8\""
+                },
+                {
+                  "value": "\"SFDR9\""
+                },
+                {
+                  "value": "\"Share2\""
+                },
+                {
+                  "value": "\"Share\""
+                },
+                {
+                  "value": "\"ShieldOff\""
+                },
+                {
+                  "value": "\"Shield\""
+                },
+                {
+                  "value": "\"ShoppingBag\""
+                },
+                {
+                  "value": "\"ShoppingCart\""
+                },
+                {
+                  "value": "\"Shuffle\""
+                },
+                {
+                  "value": "\"Sidebar\""
+                },
+                {
+                  "value": "\"SkipBack\""
+                },
+                {
+                  "value": "\"SkipForward\""
+                },
+                {
+                  "value": "\"Slack\""
+                },
+                {
+                  "value": "\"Slash\""
+                },
+                {
+                  "value": "\"Sliders\""
+                },
+                {
+                  "value": "\"Smartphone\""
+                },
+                {
+                  "value": "\"Smile\""
+                },
+                {
+                  "value": "\"Speaker\""
+                },
+                {
+                  "value": "\"Square\""
+                },
+                {
+                  "value": "\"Star\""
+                },
+                {
+                  "value": "\"StarFilled\""
+                },
+                {
+                  "value": "\"StopCircle\""
+                },
+                {
+                  "value": "\"Sun\""
+                },
+                {
+                  "value": "\"Sunrise\""
+                },
+                {
+                  "value": "\"Sunset\""
+                },
+                {
+                  "value": "\"Tablet\""
+                },
+                {
+                  "value": "\"Tag\""
+                },
+                {
+                  "value": "\"Target\""
+                },
+                {
+                  "value": "\"Terminal\""
+                },
+                {
+                  "value": "\"Thermometer\""
+                },
+                {
+                  "value": "\"ThumbsDown\""
+                },
+                {
+                  "value": "\"ThumbsUp\""
+                },
+                {
+                  "value": "\"ToggleLeft\""
+                },
+                {
+                  "value": "\"ToggleRight\""
+                },
+                {
+                  "value": "\"Trash2\""
+                },
+                {
+                  "value": "\"Trash\""
+                },
+                {
+                  "value": "\"Trello\""
+                },
+                {
+                  "value": "\"TrendingDown\""
+                },
+                {
+                  "value": "\"TrendingUp\""
+                },
+                {
+                  "value": "\"Triangle\""
+                },
+                {
+                  "value": "\"Truck\""
+                },
+                {
+                  "value": "\"Tv\""
+                },
+                {
+                  "value": "\"Twitter\""
+                },
+                {
+                  "value": "\"Type\""
+                },
+                {
+                  "value": "\"Umbrella\""
+                },
+                {
+                  "value": "\"Underline\""
+                },
+                {
+                  "value": "\"Unlock\""
+                },
+                {
+                  "value": "\"UploadCloud\""
+                },
+                {
+                  "value": "\"Upload\""
+                },
+                {
+                  "value": "\"UserCheck\""
+                },
+                {
+                  "value": "\"UserMinus\""
+                },
+                {
+                  "value": "\"UserPlus\""
+                },
+                {
+                  "value": "\"UserX\""
+                },
+                {
+                  "value": "\"User\""
+                },
+                {
+                  "value": "\"Users\""
+                },
+                {
+                  "value": "\"VideoOff\""
+                },
+                {
+                  "value": "\"Video\""
+                },
+                {
+                  "value": "\"Voicemail\""
+                },
+                {
+                  "value": "\"Volume1\""
+                },
+                {
+                  "value": "\"Volume2\""
+                },
+                {
+                  "value": "\"VolumeX\""
+                },
+                {
+                  "value": "\"Volume\""
+                },
+                {
+                  "value": "\"Watch\""
+                },
+                {
+                  "value": "\"WifiOff\""
+                },
+                {
+                  "value": "\"Wifi\""
+                },
+                {
+                  "value": "\"Wind\""
+                },
+                {
+                  "value": "\"XCircle\""
+                },
+                {
+                  "value": "\"XCircleFilled\""
+                },
+                {
+                  "value": "\"XSquare\""
+                },
+                {
+                  "value": "\"X\""
+                },
+                {
+                  "value": "\"XDotCom\""
+                },
+                {
+                  "value": "\"Youtube\""
+                },
+                {
+                  "value": "\"ZapOff\""
+                },
+                {
+                  "value": "\"Zap\""
+                },
+                {
+                  "value": "\"ZoomIn\""
+                },
+                {
+                  "value": "\"ZoomOut\""
+                }
+              ]
+            }
+          },
+          "className": {
+            "defaultValue": null,
+            "description": "Optional class name",
+            "name": "className",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "string"
+            }
+          },
+          "disabled": {
+            "defaultValue": null,
+            "description": "Decides if the button should be disabled",
+            "name": "disabled",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "inverted": {
+            "defaultValue": null,
+            "description": "Decides if the button should use the inverted color scheme",
+            "name": "inverted",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "autofocus": {
+            "defaultValue": null,
+            "description": "Determines if the button should be focused on render",
+            "name": "autofocus",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "ariaAttributes": {
+            "defaultValue": null,
+            "description": "Optional aria props for the element to improve accessibility",
+            "name": "ariaAttributes",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "{ ariaLabel?: string; ariaControls?: string; ariaHasPopup?: boolean | undefined; ariaExpanded?: boolean | undefined; } | undefined"
+            }
+          },
+          "faux": {
+            "defaultValue": null,
+            "description": "Determines if the button should be rendered without a semantic HTML element, i.e a fake button. Useful when you want to style a button-like element that is not a button.",
+            "name": "faux",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "dataAttributes": {
+            "defaultValue": null,
+            "description": "Optional data attributes to add to the button element",
+            "name": "dataAttributes",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "HTMLDataAttributes"
+            }
+          },
+          "onClick": {
+            "defaultValue": null,
+            "description": "If onClick is provided, the button will be rendered as a button element",
+            "name": "onClick",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "((e: MouseEvent<Element, MouseEvent>) => void)"
+            }
+          },
+          "preventTargetBlank": {
+            "defaultValue": null,
+            "description": "For external links, prevent target=\"_blank\" from being added",
+            "name": "preventTargetBlank",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "forceTargetBlank": {
+            "defaultValue": null,
+            "description": "Force target=\"_blank\" to be added to the link",
+            "name": "forceTargetBlank",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "fillWidth": {
+            "defaultValue": null,
+            "description": "If true, the button will drop fit content and fill up available space",
+            "name": "fillWidth",
+            "parent": {
+              "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+              "name": "ButtonBaseProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/internal/ButtonBase/ButtonBase.tsx",
+                "name": "ButtonBaseProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          }
+        },
+        "exportName": "NavigationButton"
+      }
+    },
+    "components-alert": {
+      "id": "components-alert",
+      "name": "Alert",
+      "path": "./src/components/Alert/Alert.stories.tsx",
+      "stories": [
+        {
+          "id": "components-alert--information",
+          "name": "Information",
+          "snippet": "const Information = () => <Alert headline=\"Info headline\" body=\"Alert body\" variant=\"information\" />;"
+        },
+        {
+          "id": "components-alert--information-short-text",
+          "name": "Information Short Text",
+          "snippet": "const InformationShortText = () => <Alert headline=\"Short message\" variant=\"information\" />;"
+        }
+      ],
+      "import": "import { Alert } from \"@spp-technology/sppackel\";",
+      "jsDocTags": {},
+      "description": "Alert UI component",
+      "reactDocgenTypescript": {
+        "tags": {},
+        "filePath": "/home/runner/work/SPPackel/SPPackel/lib/components/Alert/index.tsx",
+        "description": "Alert UI component",
+        "displayName": "Alert",
+        "methods": [],
+        "props": {
+          "variant": {
+            "defaultValue": {
+              "value": "information"
+            },
+            "description": "Variant of the alert. Each color is reserved for its purpose and must not be used elsewhere.\n- `error` (red) \u2014 High criticality. The user is completely stopped.\n- `warning` (yellow) \u2014 Medium criticality. Some parts are still usable.\n- `information` (purple) \u2014 Low criticality. Informational; everything still works.\n- `success` (green) \u2014 Action completed successfully.\n- `superVisible` (dark red) \u2014 Extra emphasis when \"message\"/\"subdued\" don't stand out enough. Do not overuse.\n- `message` \u2014 General-purpose message.\n- `subdued` \u2014 Lower visual weight message.\n- `formMessage` \u2014 Used for form-level messages.\n- `waiting` \u2014 Indicates a pending/loading state.",
+            "name": "variant",
+            "parent": {
+              "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+              "name": "AlertProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+                "name": "AlertProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "enum",
+              "raw": "\"subdued\" | \"information\" | \"success\" | \"warning\" | \"error\" | \"message\" | \"superVisible\" | \"formMessage\" | \"waiting\"",
+              "value": [
+                {
+                  "value": "\"subdued\""
+                },
+                {
+                  "value": "\"information\""
+                },
+                {
+                  "value": "\"success\""
+                },
+                {
+                  "value": "\"warning\""
+                },
+                {
+                  "value": "\"error\""
+                },
+                {
+                  "value": "\"message\""
+                },
+                {
+                  "value": "\"superVisible\""
+                },
+                {
+                  "value": "\"formMessage\""
+                },
+                {
+                  "value": "\"waiting\""
+                }
+              ]
+            }
+          },
+          "headline": {
+            "defaultValue": null,
+            "description": "Headline of the alert",
+            "name": "headline",
+            "parent": {
+              "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+              "name": "AlertProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+                "name": "AlertProps"
+              }
+            ],
+            "required": true,
+            "type": {
+              "name": "ReactNode"
+            }
+          },
+          "body": {
+            "defaultValue": null,
+            "description": "Body-text of the alert",
+            "name": "body",
+            "parent": {
+              "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+              "name": "AlertProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+                "name": "AlertProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "ReactNode"
+            }
+          },
+          "inline": {
+            "defaultValue": null,
+            "description": "Determines if the alert should be displayed inline, i.e without a min width",
+            "name": "inline",
+            "parent": {
+              "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+              "name": "AlertProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+                "name": "AlertProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "boolean"
+            }
+          },
+          "link": {
+            "defaultValue": null,
+            "description": "Decide if you want to show a link at the end of the alert",
+            "name": "link",
+            "parent": {
+              "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+              "name": "AlertProps"
+            },
+            "declarations": [
+              {
+                "fileName": "SPPackel/lib/components/Alert/Alert.tsx",
+                "name": "AlertProps"
+              }
+            ],
+            "required": false,
+            "type": {
+              "name": "{ href: string; text: string; }"
+            }
+          }
+        },
+        "exportName": "Alert"
+      }
+    }
+  }
+}
