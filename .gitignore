@@ -1,7 +1,5 @@
-/bin/
-coverage.out
-*.test
-*.out
-
-# Go fuzz corpus
-/internal/**/testdata/fuzz/
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store

@@ -1,0 +1,47 @@
+{
+  "name": "storyquery",
+  "version": "0.2.0",
+  "description": "A CLI that queries Storybook design-system manifests and answers agent-friendly questions about components and documentation.",
+  "keywords": [
+    "storybook",
+    "design-system",
+    "cli",
+    "manifest",
+    "components",
+    "agents"
+  ],
+  "license": "MIT",
+  "author": "adriankarlen",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adriankarlen/storyquery.git"
+  },
+  "type": "module",
+  "bin": {
+    "storyquery": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "arktype": "^2.2.0",
+    "citty": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.8"
+  }
+}
