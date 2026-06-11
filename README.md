@@ -11,15 +11,44 @@ Output defaults to JSON. Use `--format text` for human-readable output.
 
 ## Install
 
+### Download prebuilt binary
+
+Download the latest release for your platform from [GitHub Releases](https://github.com/adriankarlen/storyquery/releases).
+
+Available platforms: `linux_amd64`, `linux_arm64`, `darwin_amd64`, `darwin_arm64`, `windows_amd64`, `windows_arm64`
+
+**Linux / macOS:**
+
 ```sh
-go install github.com/adriankarlen/storyquery/cmd/storyquery@latest
+# Download and extract (replace darwin_arm64 with your platform)
+VERSION=0.1.1
+curl -LO https://github.com/adriankarlen/storyquery/releases/download/v${VERSION}/storyquery_${VERSION}_darwin_arm64.tar.gz
+tar -xzf storyquery_${VERSION}_darwin_arm64.tar.gz
+
+# Move to PATH
+sudo mv storyquery /usr/local/bin/
+# or without sudo:
+mkdir -p ~/.local/bin && mv storyquery ~/.local/bin/
+
+# Verify
+storyquery --version
 ```
 
-Or build from source:
+**Windows:**
+
+Download the `.zip` file from [releases](https://github.com/adriankarlen/storyquery/releases), extract `storyquery.exe`, and move it to a directory in your PATH.
+
+**Checksum verification (optional):**
 
 ```sh
-make build      # bin/storyquery
-make build-all  # cross-compile for linux/darwin/windows (amd64 + arm64)
+curl -LO https://github.com/adriankarlen/storyquery/releases/download/v${VERSION}/checksums.txt
+sha256sum -c checksums.txt 2>&1 | grep storyquery_${VERSION}_darwin_arm64.tar.gz
+```
+
+### Using Go
+
+```sh
+go install github.com/adriankarlen/storyquery/cmd/storyquery@latest
 ```
 
 The binary is `storyquery`. If you want something shorter, add a shell alias: `alias sq='storyquery'`.
