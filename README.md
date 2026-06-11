@@ -1,6 +1,6 @@
 # storyquery
 
-A CLI that queries Storybook design system manifests and answers questions about components and documentation.
+A CLI that queries Storybook design system manifests and answers questions about components and documentation. Built for agents (JSON-first output), but handy for humans too.
 
 `storyquery` reads two manifest files published by Storybook:
 
@@ -11,47 +11,31 @@ Output defaults to JSON. Use `--format text` for human-readable output.
 
 ## Install
 
-### Download prebuilt binary
+Requires Node.js >= 18.
 
-Download the latest release for your platform from [GitHub Releases](https://github.com/adriankarlen/storyquery/releases).
-
-Available platforms: `linux_amd64`, `linux_arm64`, `darwin_amd64`, `darwin_arm64`, `windows_amd64`, `windows_arm64`
-
-**Linux / macOS:**
+### Run without installing
 
 ```sh
-# Download and extract (replace darwin_arm64 with your platform)
-VERSION=0.1.1
-curl -LO https://github.com/adriankarlen/storyquery/releases/download/v${VERSION}/storyquery_${VERSION}_darwin_arm64.tar.gz
-tar -xzf storyquery_${VERSION}_darwin_arm64.tar.gz
+npx storyquery query MainButton --url https://your-storybook.example.com
+```
 
-# Move to PATH
-sudo mv storyquery /usr/local/bin/
-# or without sudo:
-mkdir -p ~/.local/bin && mv storyquery ~/.local/bin/
+### Global install
 
-# Verify
+```sh
+npm install -g storyquery
 storyquery --version
 ```
 
-**Windows:**
+If you want something shorter, add a shell alias: `alias sq='storyquery'`.
 
-Download the `.zip` file from [releases](https://github.com/adriankarlen/storyquery/releases), extract `storyquery.exe`, and move it to a directory in your PATH.
-
-**Checksum verification (optional):**
+### As a project dependency
 
 ```sh
-curl -LO https://github.com/adriankarlen/storyquery/releases/download/v${VERSION}/checksums.txt
-sha256sum -c checksums.txt 2>&1 | grep storyquery_${VERSION}_darwin_arm64.tar.gz
+npm install --save-dev storyquery
 ```
 
-### Using Go
-
-```sh
-go install github.com/adriankarlen/storyquery/cmd/storyquery@latest
-```
-
-The binary is `storyquery`. If you want something shorter, add a shell alias: `alias sq='storyquery'`.
+Then run it via `npx storyquery ...` or a `package.json` script. Put the base URL
+in `./.storyquery.json` so everyone on the project shares it.
 
 ## Configuration
 
@@ -71,7 +55,10 @@ Config file format:
 }
 ```
 
-Manifests are cached on disk under the OS cache directory. Default TTL is 1 hour. Use `--refresh` to force a refetch or `--no-cache` to bypass the cache.
+`cacheTTL` accepts Go-style durations (`ms`, `s`, `m`, `h`), e.g. `"30m"`, `"1h30m"`.
+
+Manifests are cached on disk under the OS cache directory. Default TTL is 1 hour.
+Use `--refresh` to force a refetch or `--no-cache` to bypass the cache.
 
 ## Usage
 
@@ -105,6 +92,14 @@ storyquery query Alert --url https://your-storybook.example.com
 | `--refresh`  | Force a fresh fetch, ignoring cached manifests     |
 | `--no-cache` | Bypass the cache entirely                          |
 
+### Command flags
+
+| Command | Flag       | Description                              |
+|---------|------------|------------------------------------------|
+| `query` | `--limit`  | max results per category (0 = all)       |
+| `docs`  | `--limit`  | max results (0 = all)                    |
+| `list`  | `--filter` | case-insensitive substring on name/id    |
+
 ### Exit codes
 
 | Code | Meaning              |
@@ -117,10 +112,15 @@ storyquery query Alert --url https://your-storybook.example.com
 ## Development
 
 ```sh
-make test           # go test -race ./...
-make test-coverage  # coverage report
-make fuzz           # fuzz the search scorer
-make vet            # go vet
-make lint           # golangci-lint
-make fmt            # gofmt
+npm install
+npm run build       # bundle to dist/ with tsup
+npm run dev         # watch build
+npm run typecheck   # tsc --noEmit
+npm test            # vitest run
+npm run test:watch  # vitest
 ```
+
+The CLI is authored in TypeScript and bundled to a single ESM file in `dist/`.
+Runtime dependencies: [`citty`](https://github.com/unjs/citty) (command tree) and
+[`arktype`](https://arktype.io) (lenient manifest validation). HTTP uses the
+native `fetch` API.
