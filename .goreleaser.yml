@@ -1,0 +1,69 @@
+version: 2
+
+project_name: storyquery
+
+before:
+  hooks:
+    - go mod tidy
+    - go vet ./...
+
+builds:
+  - id: storyquery
+    main: ./cmd/storyquery
+    binary: storyquery
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/adriankarlen/storyquery/internal/version.Version={{ .Version }}
+      - -X github.com/adriankarlen/storyquery/internal/version.GitCommit={{ .Commit }}
+      - -X github.com/adriankarlen/storyquery/internal/version.BuildTime={{ .Date }}
+
+archives:
+  - id: storyquery
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    files:
+      - README.md
+      - LICENSE*
+
+checksum:
+  name_template: "checksums.txt"
+  algorithm: sha256
+
+changelog:
+  sort: asc
+  use: github
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore(ci):"
+      - "Merge pull request"
+      - "Merge branch"
+  groups:
+    - title: Features
+      regexp: "^feat"
+      order: 0
+    - title: Bug fixes
+      regexp: "^fix"
+      order: 1
+    - title: Other
+      order: 999
+
+release:
+  github:
+    owner: adriankarlen
+    name: storyquery
+  draft: false
+  prerelease: auto
+  name_template: "v{{ .Version }}"
