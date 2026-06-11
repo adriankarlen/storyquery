@@ -1,17 +1,13 @@
 # storyquery
 
-A small, cross-platform CLI that queries a Storybook design system's manifest
-files and answers questions about its components and documentation. It is built
-to help engineers — and coding agents — discover how to use an internal design
-system without leaving the terminal.
+A CLI that queries Storybook design system manifests and answers questions about components and documentation.
 
-`storyquery` reads two manifest files published by a Storybook instance:
+`storyquery` reads two manifest files published by Storybook:
 
-- `<base-url>/manifests/components.json` — components, props, stories, imports
-- `<base-url>/manifests/docs.json` — MDX guideline/documentation pages
+- `<base-url>/manifests/components.json` (components, props, stories, imports)
+- `<base-url>/manifests/docs.json` (MDX guideline pages)
 
-Output is JSON by default (agent-friendly) and can be switched to human-readable
-text with `--format text`.
+Output defaults to JSON. Use `--format text` for human-readable output.
 
 ## Install
 
@@ -22,12 +18,11 @@ go install github.com/adriankarlen/storyquery/cmd/storyquery@latest
 Or build from source:
 
 ```sh
-make build      # -> bin/storyquery
-make build-all  # cross-compile linux/darwin/windows (amd64 + arm64)
+make build      # bin/storyquery
+make build-all  # cross-compile for linux/darwin/windows (amd64 + arm64)
 ```
 
-The binary is named `storyquery`. If you want a shorter command, add your own
-shell alias (e.g. `alias sq='storyquery'`).
+The binary is `storyquery`. If you want something shorter, add a shell alias: `alias sq='storyquery'`.
 
 ## Configuration
 
@@ -47,29 +42,28 @@ Config file format:
 }
 ```
 
-Manifests are cached on disk under the OS cache directory with a default TTL of
-1 hour. Use `--refresh` to force a refetch or `--no-cache` to bypass the cache.
+Manifests are cached on disk under the OS cache directory. Default TTL is 1 hour. Use `--refresh` to force a refetch or `--no-cache` to bypass the cache.
 
 ## Usage
 
 ```sh
-# Search components and docs for a term (default JSON output)
+# Search components and docs for a term (JSON by default)
 storyquery query MainButton
 
-# Full detail for a single component (props, stories, guideline doc)
+# Full detail for one component (props, stories, guideline doc)
 storyquery show MainButton
 
-# List every component
+# List all components
 storyquery list
 storyquery list --filter button
 
-# Search guideline / documentation pages
+# Search guideline / docs pages
 storyquery docs "getting started"
 
 # Human-readable output
 storyquery query MainButton --format text
 
-# Point at a specific instance
+# Point at a specific Storybook instance
 storyquery query Alert --url https://your-storybook.example.com
 ```
 
