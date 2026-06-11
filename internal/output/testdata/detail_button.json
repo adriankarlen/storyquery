@@ -1,0 +1,29 @@
+{
+  "id": "components-button",
+  "name": "Button",
+  "description": "Button - Primary UI component for user interaction",
+  "import": "import { Button } from \"@acme/design-system\";",
+  "path": "./src/components/Button/Button.stories.tsx",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "required": true,
+      "description": "The contents of the button"
+    },
+    {
+      "name": "variant",
+      "type": "\"primary\" | \"secondary\" | \"ghost\"",
+      "required": false,
+      "default": "primary",
+      "description": "Decides the visual variant of the button"
+    }
+  ],
+  "stories": [
+    {
+      "id": "components-button--primary",
+      "name": "Primary",
+      "snippet": "const Primary = () => <Button variant=\"primary\">Click me</Button>;"
+    }
+  ]
+}

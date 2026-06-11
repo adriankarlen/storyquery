@@ -15,23 +15,23 @@ var update = flag.Bool("update", false, "update golden files")
 
 func sampleComponent() manifest.Component {
 	return manifest.Component{
-		ID:          "components-buttons-mainbutton",
-		Name:        "MainButton",
-		Description: "MainButton - Primary UI component for user interaction",
-		Import:      `import { MainButton } from "@spp-technology/sppackel";`,
-		Path:        "./src/components/MainButton/MainButton.stories.tsx",
+		ID:          "components-button",
+		Name:        "Button",
+		Description: "Button - Primary UI component for user interaction",
+		Import:      `import { Button } from "@acme/design-system";`,
+		Path:        "./src/components/Button/Button.stories.tsx",
 		Stories: []manifest.Story{
-			{ID: "components-buttons-mainbutton--primary", Name: "Primary", Snippet: "<MainButton />"},
+			{ID: "components-button--primary", Name: "Primary", Snippet: `const Primary = () => <Button variant="primary">Click me</Button>;`},
 		},
 		ReactDocgenTypeScript: manifest.DocgenInfo{
-			DisplayName: "MainButton",
+			DisplayName: "Button",
 			Props: map[string]manifest.Prop{
 				"variant": {
 					Name:         "variant",
-					Description:  "Decides the visual variant",
+					Description:  "Decides the visual variant of the button",
 					Required:     false,
 					DefaultValue: &manifest.PropDefault{Value: []byte(`"primary"`)},
-					Type:         manifest.PropType{Name: "enum", Raw: `"primary" | "secondary"`},
+					Type:         manifest.PropType{Name: "enum", Raw: `"primary" | "secondary" | "ghost"`},
 				},
 				"children": {
 					Name:        "children",
@@ -61,7 +61,7 @@ func TestDetailComponentJSON_Golden(t *testing.T) {
 	if err := output.Encode(&buf, output.FormatJSON, detail); err != nil {
 		t.Fatal(err)
 	}
-	assertGolden(t, "detail_mainbutton.json", buf.Bytes())
+	assertGolden(t, "detail_button.json", buf.Bytes())
 }
 
 func TestDetailComponentProps(t *testing.T) {
@@ -84,7 +84,7 @@ func TestEncodeText(t *testing.T) {
 	if err := output.Encode(&buf, output.FormatText, detail); err != nil {
 		t.Fatal(err)
 	}
-	if !bytes.Contains(buf.Bytes(), []byte("MainButton")) {
+	if !bytes.Contains(buf.Bytes(), []byte("Button")) {
 		t.Error("text output should contain component name")
 	}
 }

@@ -27,17 +27,17 @@ func TestParseComponents(t *testing.T) {
 	if err != nil {
 		t.Fatalf("ParseComponents: %v", err)
 	}
-	mb, ok := c.Components["components-buttons-mainbutton"]
+	btn, ok := c.Components["components-button"]
 	if !ok {
-		t.Fatal("expected MainButton component")
+		t.Fatal("expected Button component")
 	}
-	if mb.Name != "MainButton" {
-		t.Errorf("name = %q, want MainButton", mb.Name)
+	if btn.Name != "Button" {
+		t.Errorf("name = %q, want Button", btn.Name)
 	}
-	if len(mb.ReactDocgenTypeScript.Props) == 0 {
+	if len(btn.ReactDocgenTypeScript.Props) == 0 {
 		t.Error("expected props to be parsed")
 	}
-	if mb.Import == "" {
+	if btn.Import == "" {
 		t.Error("expected import statement")
 	}
 }
@@ -81,9 +81,9 @@ func TestGuidelineFor(t *testing.T) {
 		t.Errorf("guideline id = %q", g.ID)
 	}
 
-	mb := comps.Components["components-buttons-mainbutton"]
-	if _, ok := manifest.GuidelineFor(docs, mb); ok {
-		t.Error("did not expect a guideline for MainButton in fixture")
+	btn := comps.Components["components-button"]
+	if _, ok := manifest.GuidelineFor(docs, btn); ok {
+		t.Error("did not expect a guideline for Button in fixture")
 	}
 }
 
@@ -136,8 +136,8 @@ func TestServiceLoadAndCache(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Load: %v", err)
 	}
-	if _, ok := b.Components.Components["components-buttons-mainbutton"]; !ok {
-		t.Error("expected MainButton after load")
+	if _, ok := b.Components.Components["components-button"]; !ok {
+		t.Error("expected Button after load")
 	}
 	if f.calls() != 2 {
 		t.Errorf("expected 2 fetches, got %d", f.calls())

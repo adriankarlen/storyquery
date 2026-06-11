@@ -9,11 +9,11 @@ import (
 
 func sampleComponents() map[string]manifest.Component {
 	return map[string]manifest.Component{
-		"components-buttons-mainbutton": {
-			ID: "components-buttons-mainbutton", Name: "MainButton",
+		"components-button": {
+			ID: "components-button", Name: "Button",
 		},
-		"components-buttons-navigationbutton": {
-			ID: "components-buttons-navigationbutton", Name: "NavigationButton",
+		"components-iconbutton": {
+			ID: "components-iconbutton", Name: "IconButton",
 		},
 		"components-alert": {ID: "components-alert", Name: "Alert"},
 	}
@@ -26,12 +26,12 @@ func TestComponentsRanking(t *testing.T) {
 		term   string
 		wantID string // expected top match id, "" = no match
 	}{
-		{"exact name", "MainButton", "components-buttons-mainbutton"},
-		{"exact name lowercase", "mainbutton", "components-buttons-mainbutton"},
+		{"exact name", "Button", "components-button"},
+		{"exact name lowercase", "button", "components-button"},
 		{"exact id", "components-alert", "components-alert"},
-		{"name prefix", "Main", "components-buttons-mainbutton"},
-		{"id substring", "buttons", "components-buttons-mainbutton"},
-		{"fuzzy", "navbtn", "components-buttons-navigationbutton"},
+		{"name prefix", "Icon", "components-iconbutton"},
+		{"id substring", "iconbutton", "components-iconbutton"},
+		{"fuzzy", "icnbtn", "components-iconbutton"},
 		{"no match", "zzzzz", ""},
 	}
 	for _, tt := range tests {
@@ -64,11 +64,11 @@ func TestComponentsLimit(t *testing.T) {
 func TestBestComponent(t *testing.T) {
 	comps := sampleComponents()
 
-	m, ok, ambiguous := search.BestComponent(comps, "MainButton")
+	m, ok, ambiguous := search.BestComponent(comps, "Button")
 	if !ok || ambiguous {
 		t.Fatalf("exact name: ok=%v ambiguous=%v", ok, ambiguous)
 	}
-	if m.Component.ID != "components-buttons-mainbutton" {
+	if m.Component.ID != "components-button" {
 		t.Errorf("got %q", m.Component.ID)
 	}
 
@@ -96,7 +96,7 @@ func TestDocsRanking(t *testing.T) {
 
 func FuzzComponentsQuery(f *testing.F) {
 	comps := sampleComponents()
-	for _, seed := range []string{"MainButton", "", "btn", "components-alert", "界"} {
+	for _, seed := range []string{"Button", "", "btn", "components-alert", "界"} {
 		f.Add(seed)
 	}
 	f.Fuzz(func(t *testing.T, term string) {
