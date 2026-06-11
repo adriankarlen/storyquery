@@ -80,8 +80,17 @@ func writeDetail(e *ew, d ComponentDetail) {
 	if d.Description != "" {
 		e.printf("\n%s\n", d.Description)
 	}
+	if len(d.Tags) > 0 {
+		e.printf("\nTags:\n")
+		for k, v := range d.Tags {
+			e.printf("  @%s %s\n", k, firstLine(v))
+		}
+	}
 	if d.Import != "" {
 		e.printf("\nImport:\n  %s\n", d.Import)
+	}
+	if d.SourceFile != "" {
+		e.printf("Source: %s\n", d.SourceFile)
 	}
 	e.printf("\nProps (%d):\n", len(d.Props))
 	for _, p := range d.Props {

@@ -63,15 +63,17 @@ type DocSummary struct {
 
 // ComponentDetail is the full payload for `show`.
 type ComponentDetail struct {
-	ID          string        `json:"id"`
-	Name        string        `json:"name"`
-	Description string        `json:"description,omitempty"`
-	Import      string        `json:"import,omitempty"`
-	Path        string        `json:"path,omitempty"`
-	Props       []PropDetail  `json:"props"`
-	Stories     []StoryDetail `json:"stories"`
-	Guideline   *DocDetail    `json:"guideline,omitempty"`
-	Warnings    []string      `json:"warnings,omitempty"`
+	ID          string            `json:"id"`
+	Name        string            `json:"name"`
+	Description string            `json:"description,omitempty"`
+	Import      string            `json:"import,omitempty"`
+	Path        string            `json:"path,omitempty"`
+	SourceFile  string            `json:"sourceFile,omitempty"`
+	Tags        map[string]string `json:"tags,omitempty"`
+	Props       []PropDetail      `json:"props"`
+	Stories     []StoryDetail     `json:"stories"`
+	Guideline   *DocDetail        `json:"guideline,omitempty"`
+	Warnings    []string          `json:"warnings,omitempty"`
 }
 
 // PropDetail describes one prop in the detail view.
@@ -128,12 +130,15 @@ func SummarizeComponent(c manifest.Component, score int) ComponentSummary {
 
 // DetailComponent builds the full detail view, attaching a guideline doc if set.
 func DetailComponent(c manifest.Component, guideline *manifest.Doc) ComponentDetail {
+	tags := mergeTags(c.ReactDocgenTypeScript.Tags)
 	d := ComponentDetail{
 		ID:          c.ID,
 		Name:        c.Name,
 		Description: c.Description,
 		Import:      c.Import,
 		Path:        c.Path,
+		SourceFile:  c.ReactDocgenTypeScript.FilePath,
+		Tags:        tags,
 		Props:       make([]PropDetail, 0, len(c.ReactDocgenTypeScript.Props)),
 		Stories:     make([]StoryDetail, 0, len(c.Stories)),
 	}
@@ -155,6 +160,23 @@ func DetailComponent(c manifest.Component, guideline *manifest.Doc) ComponentDet
 		d.Guideline = &DocDetail{ID: guideline.ID, Title: guideline.Title, Content: guideline.Content}
 	}
 	return d
+}
+
+// mergeTags combines tag maps, returning nil when all are empty (so
+// omitempty suppresses the field from JSON output).
+func mergeTags(sources ...map[string]string) map[string]string {
+	merged := make(map[string]string)
+	for _, src := range sources {
+		for k, v := range src {
+			if v != "" {
+				merged[k] = v
+			}
+		}
+	}
+	if len(merged) == 0 {
+		return nil
+	}
+	return merged
 }
 
 // DetailDoc builds a full doc view.

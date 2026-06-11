@@ -43,10 +43,12 @@ type Story struct {
 
 // DocgenInfo holds the react-docgen-typescript output for a component.
 type DocgenInfo struct {
-	DisplayName string          `json:"displayName"`
-	Description string          `json:"description"`
-	ExportName  string          `json:"exportName"`
-	Props       map[string]Prop `json:"props"`
+	DisplayName string            `json:"displayName"`
+	Description string            `json:"description"`
+	ExportName  string            `json:"exportName"`
+	FilePath    string            `json:"filePath"`
+	Tags        map[string]string `json:"tags"`
+	Props       map[string]Prop   `json:"props"`
 }
 
 // Prop describes a single component property.
