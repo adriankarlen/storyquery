@@ -1,5 +1,5 @@
 // Shared global arguments and the bundle-loading helper used by every command.
-import { Cache } from "../cache.js";
+import { createCache } from "../cache.js";
 import { type Config, cacheDir, componentsUrl, docsUrl, resolveConfig } from "../config.js";
 import { createFetcher } from "../fetch.js";
 import type { Bundle } from "../manifest/service.js";
@@ -52,7 +52,7 @@ export async function loadBundle(args: GlobalOpts): Promise<Bundle> {
   const cfg: Config = resolveConfig(args.url);
   const fetcher = createFetcher();
 
-  const store = args.cache ? new Cache(cacheDir()) : undefined;
+  const store = args.cache ? createCache(cacheDir()) : undefined;
 
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(new Error("manifest load timed out")), LOAD_TIMEOUT_MS);

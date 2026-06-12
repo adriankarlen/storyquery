@@ -4,15 +4,15 @@ import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { Cache, cacheKey } from "../src/cache.js";
+import { cacheKey, createCache } from "../src/cache.js";
 
 function tmp(): string {
   return mkdtempSync(join(tmpdir(), "sq-cache-"));
 }
 
-describe("Cache", () => {
+describe("createCache", () => {
   it("returns ok=false for a missing entry", async () => {
-    const c = new Cache(tmp());
+    const c = createCache(tmp());
     const entry = await c.load(cacheKey("missing"), 1000);
     expect(entry.ok).toBe(false);
     expect(entry.fresh).toBe(false);
@@ -20,7 +20,7 @@ describe("Cache", () => {
 
   it("saves then loads fresh within ttl", async () => {
     let now = 1_000_000;
-    const c = new Cache(tmp(), { now: () => now });
+    const c = createCache(tmp(), { now: () => now });
     const key = cacheKey("https://x/components.json");
     await c.save(key, "payload");
     now += 500;
@@ -32,7 +32,7 @@ describe("Cache", () => {
 
   it("reports stale once ttl elapsed", async () => {
     let now = 1_000_000;
-    const c = new Cache(tmp(), { now: () => now });
+    const c = createCache(tmp(), { now: () => now });
     const key = cacheKey("k");
     await c.save(key, "data");
     now += 2000;

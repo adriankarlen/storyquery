@@ -31,66 +31,57 @@ export interface CacheOptions {
   now?: () => number;
 }
 
-/** A filesystem-backed Store rooted at a directory. */
-export class Cache implements Store {
-  private readonly dir: string;
-  private readonly now: () => number;
-  private ready: Promise<void> | null = null;
+/** Builds a filesystem-backed Store rooted at a directory. */
+export function createCache(dir: string, opts: CacheOptions = {}): Store {
+  const now = opts.now ?? Date.now;
+  let ready: Promise<void> | null = null;
 
-  constructor(dir: string, opts: CacheOptions = {}) {
-    this.dir = dir;
-    this.now = opts.now ?? Date.now;
-  }
+  const ensureDir = (): Promise<void> => {
+    if (!ready) ready = mkdir(dir, { recursive: true }).then(() => undefined);
+    return ready;
+  };
 
-  private ensureDir(): Promise<void> {
-    if (!this.ready) this.ready = mkdir(this.dir, { recursive: true }).then(() => undefined);
-    return this.ready;
-  }
+  const dataPath = (key: string): string => join(dir, `${key}.data`);
+  const metaPath = (key: string): string => join(dir, `${key}.meta.json`);
 
-  private dataPath(key: string): string {
-    return join(this.dir, `${key}.data`);
-  }
+  return {
+    async load(key: string, ttlMs: number): Promise<CacheEntry> {
+      let data: string;
+      try {
+        data = await readFile(dataPath(key), "utf8");
+      } catch (err) {
+        if (isNotFound(err)) return { fresh: false, ok: false };
+        throw new Error(`read cache data: ${errMsg(err)}`);
+      }
 
-  private metaPath(key: string): string {
-    return join(this.dir, `${key}.meta.json`);
-  }
+      let fresh = false;
+      try {
+        const raw = await readFile(metaPath(key), "utf8");
+        const meta = JSON.parse(raw) as Meta;
+        const fetchedAt = Date.parse(meta.fetched_at);
+        if (!Number.isNaN(fetchedAt)) fresh = now() - fetchedAt < ttlMs;
+      } catch {
+        // Missing or unreadable meta: treat as stale.
+      }
 
-  async load(key: string, ttlMs: number): Promise<CacheEntry> {
-    let data: string;
-    try {
-      data = await readFile(this.dataPath(key), "utf8");
-    } catch (err) {
-      if (isNotFound(err)) return { fresh: false, ok: false };
-      throw new Error(`read cache data: ${errMsg(err)}`);
-    }
+      return { data, fresh, ok: true };
+    },
 
-    let fresh = false;
-    try {
-      const raw = await readFile(this.metaPath(key), "utf8");
-      const meta = JSON.parse(raw) as Meta;
-      const fetchedAt = Date.parse(meta.fetched_at);
-      if (!Number.isNaN(fetchedAt)) fresh = this.now() - fetchedAt < ttlMs;
-    } catch {
-      // Missing or unreadable meta: treat as stale.
-    }
-
-    return { data, fresh, ok: true };
-  }
-
-  async save(key: string, data: string): Promise<void> {
-    await this.ensureDir();
-    try {
-      await writeFile(this.dataPath(key), data, "utf8");
-    } catch (err) {
-      throw new Error(`write cache data: ${errMsg(err)}`);
-    }
-    const meta: Meta = { fetched_at: new Date(this.now()).toISOString() };
-    try {
-      await writeFile(this.metaPath(key), JSON.stringify(meta), "utf8");
-    } catch (err) {
-      throw new Error(`write cache meta: ${errMsg(err)}`);
-    }
-  }
+    async save(key: string, data: string): Promise<void> {
+      await ensureDir();
+      try {
+        await writeFile(dataPath(key), data, "utf8");
+      } catch (err) {
+        throw new Error(`write cache data: ${errMsg(err)}`);
+      }
+      const meta: Meta = { fetched_at: new Date(now()).toISOString() };
+      try {
+        await writeFile(metaPath(key), JSON.stringify(meta), "utf8");
+      } catch (err) {
+        throw new Error(`write cache meta: ${errMsg(err)}`);
+      }
+    },
+  };
 }
 
 /** Derives a stable, filesystem-safe cache key from arbitrary parts. */
