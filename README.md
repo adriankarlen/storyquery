@@ -124,3 +124,12 @@ The CLI is authored in TypeScript and bundled to a single ESM file in `dist/`.
 Runtime dependencies: [`citty`](https://github.com/unjs/citty) (command tree) and
 [`arktype`](https://arktype.io) (lenient manifest validation). HTTP uses the
 native `fetch` API.
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for setup, conventions, and the PR
+workflow.
+
+## License
+
+[MIT](./LICENSE) © Adrian Karlen
