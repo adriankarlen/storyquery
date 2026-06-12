@@ -33,6 +33,10 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "lint": "oxlint src test",
+    "lint:fix": "oxlint --fix src test",
+    "format": "oxfmt src test",
+    "format:check": "oxfmt --check src test",
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
@@ -41,6 +45,8 @@
   },
   "devDependencies": {
     "@types/node": "^25.0.0",
+    "oxfmt": "^0.54.0",
+    "oxlint": "^1.69.0",
     "tsdown": "^0.22.2",
     "typescript": "^5.7.0",
     "vitest": "^4.1.8"
