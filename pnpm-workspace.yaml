@@ -1,0 +1,13 @@
+# Security: only install versions published at least 3 days ago (4320 minutes)
+# https://pnpm.io/settings#minimumreleaseage
+minimumReleaseAge: 4320
+minimumReleaseAgeExclude:
+  - "@spp-technology/*"
+
+# Security: block transitive deps from using git repos or tarball URLs
+# https://pnpm.io/settings#blockexoticsubdeps
+blockExoticSubdeps: true
+
+# Security: fail install if a package's trust level has decreased
+# https://pnpm.io/settings#trustpolicy
+trustPolicy: no-downgrade
