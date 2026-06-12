@@ -5,7 +5,7 @@ the project, the conventions we follow, and how to get a change merged.
 
 ## Prerequisites
 
-- Node.js >= 20 (CI tests against 22, 24, and 26)
+- Node.js >= 22 (CI tests against 22, 24, and 26)
 - [pnpm](https://pnpm.io) 11.6.0 (declared in `packageManager`; use
   [Corepack](https://nodejs.org/api/corepack.html) to match it: `corepack enable`)
 
