@@ -30,7 +30,15 @@
             "description": "Decides the visual variant of the button",
             "required": false,
             "defaultValue": { "value": "\"primary\"" },
-            "type": { "name": "enum", "raw": "\"primary\" | \"secondary\" | \"ghost\"", "value": [{"value": "\"primary\""}, {"value": "\"secondary\""}, {"value": "\"ghost\""}] }
+            "type": {
+              "name": "enum",
+              "raw": "\"primary\" | \"secondary\" | \"ghost\"",
+              "value": [
+                { "value": "\"primary\"" },
+                { "value": "\"secondary\"" },
+                { "value": "\"ghost\"" }
+              ]
+            }
           },
           "children": {
             "name": "children",
@@ -51,14 +59,21 @@
             "description": "Controls the size of the button",
             "required": false,
             "defaultValue": { "value": "\"md\"" },
-            "type": { "name": "enum", "raw": "\"sm\" | \"md\" | \"lg\"", "value": [{"value": "\"sm\""}, {"value": "\"md\""}, {"value": "\"lg\""}] }
+            "type": {
+              "name": "enum",
+              "raw": "\"sm\" | \"md\" | \"lg\"",
+              "value": [{ "value": "\"sm\"" }, { "value": "\"md\"" }, { "value": "\"lg\"" }]
+            }
           },
           "onClick": {
             "name": "onClick",
             "description": "Click handler",
             "required": false,
             "defaultValue": null,
-            "type": { "name": "MouseEventHandler<HTMLButtonElement>", "raw": "MouseEventHandler<HTMLButtonElement>" }
+            "type": {
+              "name": "MouseEventHandler<HTMLButtonElement>",
+              "raw": "MouseEventHandler<HTMLButtonElement>"
+            }
           }
         }
       }
