@@ -11,7 +11,7 @@ Output defaults to JSON. Use `--format text` for human-readable output.
 
 ## Install
 
-Requires Node.js >= 18.
+Requires Node.js >= 22.
 
 ### Run without installing
 
@@ -85,29 +85,29 @@ storyquery query Alert --url https://your-storybook.example.com
 
 ### Global flags
 
-| Flag         | Description                                       |
-|--------------|---------------------------------------------------|
-| `--url`      | Storybook base URL (overrides env and config)     |
-| `--format`   | `json` (default) or `text`                        |
-| `--refresh`  | Force a fresh fetch, ignoring cached manifests     |
-| `--no-cache` | Bypass the cache entirely                          |
+| Flag         | Description                                    |
+| ------------ | ---------------------------------------------- |
+| `--url`      | Storybook base URL (overrides env and config)  |
+| `--format`   | `json` (default) or `text`                     |
+| `--refresh`  | Force a fresh fetch, ignoring cached manifests |
+| `--no-cache` | Bypass the cache entirely                      |
 
 ### Command flags
 
-| Command | Flag       | Description                              |
-|---------|------------|------------------------------------------|
-| `query` | `--limit`  | max results per category (0 = all)       |
-| `docs`  | `--limit`  | max results (0 = all)                    |
-| `list`  | `--filter` | case-insensitive substring on name/id    |
+| Command | Flag       | Description                           |
+| ------- | ---------- | ------------------------------------- |
+| `query` | `--limit`  | max results per category (0 = all)    |
+| `docs`  | `--limit`  | max results (0 = all)                 |
+| `list`  | `--filter` | case-insensitive substring on name/id |
 
 ### Exit codes
 
-| Code | Meaning              |
-|------|----------------------|
-| 0    | success              |
-| 1    | no match / error     |
-| 2    | usage (e.g. no URL)  |
-| 3    | network/HTTP error   |
+| Code | Meaning             |
+| ---- | ------------------- |
+| 0    | success             |
+| 1    | no match / error    |
+| 2    | usage (e.g. no URL) |
+| 3    | network/HTTP error  |
 
 ## Development
 
