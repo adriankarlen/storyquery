@@ -1,7 +1,9 @@
 import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+
 import { describe, expect, it } from "vitest";
+
 import { Cache, cacheKey } from "../src/cache.js";
 
 function tmp(): string {

@@ -1,10 +1,5 @@
 // Human-friendly text rendering for the known view models.
-import type {
-  ComponentDetail,
-  DocsResult,
-  ListResult,
-  QueryResult,
-} from "./types.js";
+import type { ComponentDetail, DocsResult, ListResult, QueryResult } from "./types.js";
 
 function firstLine(s: string): string {
   const i = s.indexOf("\n");

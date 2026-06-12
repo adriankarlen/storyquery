@@ -1,11 +1,11 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from "tsdown";
 import pkg from "./package.json" with { type: "json" };
 
 export default defineConfig({
   entry: { cli: "src/cli.ts" },
   format: ["esm"],
-  target: "node18",
   platform: "node",
+  fixedExtension: false,
   clean: true,
   sourcemap: true,
   minify: false,

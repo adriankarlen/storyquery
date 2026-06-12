@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import type { Component, Doc } from "../src/manifest/types.js";
 import {
   type Renderable,

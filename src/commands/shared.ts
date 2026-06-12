@@ -1,12 +1,6 @@
 // Shared global arguments and the bundle-loading helper used by every command.
 import { Cache } from "../cache.js";
-import {
-  type Config,
-  cacheDir,
-  componentsUrl,
-  docsUrl,
-  resolveConfig,
-} from "../config.js";
+import { type Config, cacheDir, componentsUrl, docsUrl, resolveConfig } from "../config.js";
 import { createFetcher } from "../fetch.js";
 import type { Bundle } from "../manifest/service.js";
 import { loadBundle as loadManifestBundle } from "../manifest/service.js";

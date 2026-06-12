@@ -1,5 +1,6 @@
 // Wires the storyquery command tree and maps domain errors to process exit codes.
 import { defineCommand, runCommand, showUsage } from "citty";
+
 import { docsCommand } from "./commands/docs.js";
 import { listCommand } from "./commands/list.js";
 import { queryCommand } from "./commands/query.js";

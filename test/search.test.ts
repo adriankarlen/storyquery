@@ -1,11 +1,7 @@
 import { describe, expect, it } from "vitest";
+
 import type { Component, Doc } from "../src/manifest/types.js";
-import {
-  bestComponent,
-  fuzzyScore,
-  searchComponents,
-  searchDocs,
-} from "../src/search.js";
+import { bestComponent, fuzzyScore, searchComponents, searchDocs } from "../src/search.js";
 
 function comp(id: string, name: string): Component {
   return { id, name };

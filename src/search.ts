@@ -51,11 +51,7 @@ export function searchComponents(
 }
 
 /** Ranks all docs against term, matching on title, name, id, and content. */
-export function searchDocs(
-  docs: Record<string, Doc>,
-  term: string,
-  limit: number,
-): DocMatch[] {
+export function searchDocs(docs: Record<string, Doc>, term: string, limit: number): DocMatch[] {
   const q = term.trim().toLowerCase();
   const out: DocMatch[] = [];
   for (const doc of Object.values(docs)) {
@@ -73,10 +69,7 @@ export function searchDocs(
  * Resolves term to a single best component. A direct id or exact name always
  * wins outright; multiple tied top matches are ambiguous.
  */
-export function bestComponent(
-  comps: Record<string, Component>,
-  term: string,
-): BestComponentResult {
+export function bestComponent(comps: Record<string, Component>, term: string): BestComponentResult {
   const matches = searchComponents(comps, term, 0);
   if (matches.length === 0) return { kind: "none" };
   if (matches.length === 1) return { kind: "found", match: matches[0]! };

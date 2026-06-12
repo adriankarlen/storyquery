@@ -1,6 +1,7 @@
 import { defineCommand } from "citty";
-import { AmbiguousError, NotFoundError } from "../manifest/service.js";
+
 import { guidelineFor } from "../manifest/guideline.js";
+import { AmbiguousError, NotFoundError } from "../manifest/service.js";
 import { type Renderable, detailComponent, encode } from "../output/index.js";
 import { bestComponent, searchComponents } from "../search.js";
 import { type GlobalOpts, globalArgs, loadBundle, resolveFormat } from "./shared.js";

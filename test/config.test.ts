@@ -1,10 +1,6 @@
 import { describe, expect, it } from "vitest";
-import {
-  componentsUrl,
-  docsUrl,
-  parseDuration,
-  resolveConfig,
-} from "../src/config.js";
+
+import { componentsUrl, docsUrl, parseDuration, resolveConfig } from "../src/config.js";
 
 describe("parseDuration", () => {
   it("parses single units", () => {

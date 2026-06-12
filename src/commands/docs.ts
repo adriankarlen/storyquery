@@ -1,4 +1,5 @@
 import { defineCommand } from "citty";
+
 import { type Renderable, detailDoc, encode } from "../output/index.js";
 import type { DocsResult } from "../output/index.js";
 import { searchDocs } from "../search.js";

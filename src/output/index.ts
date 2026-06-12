@@ -1,12 +1,7 @@
+import { renderDetail, renderDocs, renderList, renderQuery } from "./text.js";
 // Renders query results in either machine-readable JSON (the default,
 // agent-first contract) or human-friendly text.
-import type {
-  ComponentDetail,
-  DocsResult,
-  ListResult,
-  QueryResult,
-} from "./types.js";
-import { renderDetail, renderDocs, renderList, renderQuery } from "./text.js";
+import type { ComponentDetail, DocsResult, ListResult, QueryResult } from "./types.js";
 
 export * from "./types.js";
 

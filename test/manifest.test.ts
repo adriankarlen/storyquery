@@ -1,13 +1,11 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+
 import { describe, expect, it } from "vitest";
+
 import { guidelineFor } from "../src/manifest/guideline.js";
 import { loadBundle } from "../src/manifest/service.js";
-import {
-  componentsVersionMismatch,
-  parseComponents,
-  parseDocs,
-} from "../src/manifest/types.js";
+import { componentsVersionMismatch, parseComponents, parseDocs } from "../src/manifest/types.js";
 
 const root = join(import.meta.dirname, "..", "testdata");
 const componentsJson = readFileSync(join(root, "components.json"), "utf8");
@@ -22,9 +20,7 @@ describe("parseComponents / parseDocs", () => {
   });
 
   it("is lenient: unknown keys pass", () => {
-    const out = parseComponents(
-      JSON.stringify({ v: 0, components: {}, unknownTopLevel: 42 }),
-    );
+    const out = parseComponents(JSON.stringify({ v: 0, components: {}, unknownTopLevel: 42 }));
     expect(out.components).toEqual({});
   });
 

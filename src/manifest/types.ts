@@ -126,9 +126,7 @@ function safeJson(data: string): unknown {
   try {
     return JSON.parse(data);
   } catch (err) {
-    throw new Error(
-      `parse manifest json: ${err instanceof Error ? err.message : String(err)}`,
-    );
+    throw new Error(`parse manifest json: ${err instanceof Error ? err.message : String(err)}`);
   }
 }
 

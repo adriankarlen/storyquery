@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+
 import { HttpStatusError, createFetcher } from "../src/fetch.js";
 
 const realFetch = globalThis.fetch;

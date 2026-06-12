@@ -54,10 +54,7 @@ interface LoadedManifest {
 }
 
 /** Fetches and parses both manifests, fetching them concurrently. */
-export async function loadBundle(
-  opts: ServiceOptions,
-  signal?: AbortSignal,
-): Promise<Bundle> {
+export async function loadBundle(opts: ServiceOptions, signal?: AbortSignal): Promise<Bundle> {
   const [comp, docs] = await Promise.all([
     loadOne(opts, "components", opts.componentsUrl, signal),
     loadOne(opts, "docs", opts.docsUrl, signal),
