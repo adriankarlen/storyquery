@@ -1,21 +1,17 @@
-import { defineCommand } from "citty";
-
 import { guidelineFor } from "../manifest/guideline.js";
 import { AmbiguousError, NotFoundError } from "../manifest/service.js";
 import { type Renderable, detailComponent, encode } from "../output/index.js";
 import { bestComponent, searchComponents } from "../search.js";
-import { type GlobalOpts, globalArgs, loadBundle, resolveFormat } from "./shared.js";
+import { defineGlobalCommand, loadBundle, resolveFormat } from "./shared.js";
 
-export const showCommand = defineCommand({
+export const showCommand = defineGlobalCommand({
   meta: { name: "show", description: "Show full detail for a single component" },
   args: {
     term: { type: "positional", description: "component term or id", required: true },
-    ...globalArgs,
   },
   async run({ args }) {
-    const opts = args as unknown as GlobalOpts;
-    const format = resolveFormat(opts);
-    const bundle = await loadBundle(opts);
+    const format = resolveFormat(args);
+    const bundle = await loadBundle(args);
 
     const term = args.term;
     const comps = bundle.components.components ?? {};

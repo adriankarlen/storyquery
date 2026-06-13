@@ -1,13 +1,15 @@
-import { defineCommand } from "citty";
-
 import { type Renderable, detailDoc, encode } from "../output/index.js";
 import type { DocsResult } from "../output/index.js";
 import { searchDocs } from "../search.js";
-import { type GlobalOpts, globalArgs, loadBundle, resolveFormat } from "./shared.js";
+import {
+  DEFAULT_QUERY_LIMIT,
+  defineGlobalCommand,
+  loadBundle,
+  parseLimit,
+  resolveFormat,
+} from "./shared.js";
 
-const DEFAULT_QUERY_LIMIT = 10;
-
-export const docsCommand = defineCommand({
+export const docsCommand = defineGlobalCommand({
   meta: { name: "docs", description: "Search documentation and guideline pages" },
   args: {
     term: { type: "positional", description: "search term", required: true },
@@ -16,15 +18,13 @@ export const docsCommand = defineCommand({
       description: "maximum results (0 = all)",
       default: String(DEFAULT_QUERY_LIMIT),
     },
-    ...globalArgs,
   },
   async run({ args }) {
-    const opts = args as unknown as GlobalOpts;
-    const format = resolveFormat(opts);
-    const bundle = await loadBundle(opts);
+    const format = resolveFormat(args);
+    const bundle = await loadBundle(args);
 
     const term = args.term;
-    const limit = Number.parseInt(args.limit, 10) || 0;
+    const limit = parseLimit(args.limit);
 
     const result: DocsResult = {
       term,

@@ -1,4 +1,7 @@
 // Shared global arguments and the bundle-loading helper used by every command.
+import type { ArgsDef, CommandMeta, ParsedArgs } from "citty";
+import { defineCommand } from "citty";
+
 import { createCache } from "../cache.js";
 import { type Config, cacheDir, componentsUrl, docsUrl, resolveConfig } from "../config.js";
 import { createFetcher } from "../fetch.js";
@@ -27,18 +30,39 @@ export const globalArgs = {
     description: "use the on-disk cache (use --no-cache to bypass)",
     default: true,
   },
-} as const;
+} as const satisfies ArgsDef;
 
-export interface GlobalOpts {
-  url?: string;
-  format: string;
-  refresh: boolean;
-  cache: boolean;
+/** The parsed global flags every command receives, derived from {@link globalArgs}. */
+export type GlobalOpts = ParsedArgs<typeof globalArgs>;
+
+/**
+ * Defines a subcommand with the shared global args mixed in. The `run` callback
+ * receives `args` fully typed as the command's own args plus {@link GlobalOpts},
+ * removing the need for an `as unknown as GlobalOpts` cast in each command.
+ */
+export function defineGlobalCommand<const A extends ArgsDef>(spec: {
+  meta: CommandMeta;
+  args?: A;
+  run: (ctx: { args: ParsedArgs<A & typeof globalArgs> }) => void | Promise<void>;
+}) {
+  return defineCommand({
+    meta: spec.meta,
+    args: { ...(spec.args ?? ({} as A)), ...globalArgs },
+    run: ({ args }) => spec.run({ args: args as ParsedArgs<A & typeof globalArgs> }),
+  });
 }
 
 /** Resolves the --format flag. */
 export function resolveFormat(args: GlobalOpts): Format {
   return parseFormat(args.format);
+}
+
+/** Default maximum results per category for the query and docs commands. */
+export const DEFAULT_QUERY_LIMIT = 10;
+
+/** Parses a --limit flag string; non-numeric or non-positive values mean "all" (0). */
+export function parseLimit(value: string): number {
+  return Number.parseInt(value, 10) || 0;
 }
 
 const LOAD_TIMEOUT_MS = 45_000;

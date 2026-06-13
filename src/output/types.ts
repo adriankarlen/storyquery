@@ -78,13 +78,15 @@ export interface ListResult {
 export function summarizeComponent(c: Component, score: number): ComponentSummary {
   // Field order mirrors the original JSON contract: id, name, description,
   // import, props, stories, score.
-  const summary = { id: c.id ?? "", name: c.name ?? "" } as ComponentSummary;
-  if (c.description) summary.description = c.description;
-  if (c.import) summary.import = c.import;
-  summary.props = Object.keys(c.reactDocgenTypescript?.props ?? {}).length;
-  summary.stories = c.stories?.length ?? 0;
-  if (score) summary.score = score;
-  return summary;
+  return {
+    id: c.id ?? "",
+    name: c.name ?? "",
+    ...(c.description ? { description: c.description } : {}),
+    ...(c.import ? { import: c.import } : {}),
+    props: Object.keys(c.reactDocgenTypescript?.props ?? {}).length,
+    stories: c.stories?.length ?? 0,
+    ...(score ? { score } : {}),
+  };
 }
 
 /** Builds the full detail view, attaching a guideline doc if set. */

@@ -1,10 +1,8 @@
-import { defineCommand } from "citty";
-
 import { type Renderable, encode, summarizeComponent } from "../output/index.js";
 import type { ListResult } from "../output/index.js";
-import { type GlobalOpts, globalArgs, loadBundle, resolveFormat } from "./shared.js";
+import { defineGlobalCommand, loadBundle, resolveFormat } from "./shared.js";
 
-export const listCommand = defineCommand({
+export const listCommand = defineGlobalCommand({
   meta: { name: "list", description: "List all components" },
   args: {
     filter: {
@@ -12,12 +10,10 @@ export const listCommand = defineCommand({
       description: "case-insensitive substring filter on name/id",
       default: "",
     },
-    ...globalArgs,
   },
   async run({ args }) {
-    const opts = args as unknown as GlobalOpts;
-    const format = resolveFormat(opts);
-    const bundle = await loadBundle(opts);
+    const format = resolveFormat(args);
+    const bundle = await loadBundle(args);
 
     const needle = args.filter.trim().toLowerCase();
     const result: ListResult = { components: [] };
