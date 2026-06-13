@@ -81,7 +81,7 @@ export async function loadBundle(args: GlobalOpts): Promise<Bundle> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(new Error("manifest load timed out")), LOAD_TIMEOUT_MS);
   try {
-    return await loadManifestBundle(
+    const bundle = await loadManifestBundle(
       {
         fetcher,
         componentsUrl: componentsUrl(cfg),
@@ -92,6 +92,9 @@ export async function loadBundle(args: GlobalOpts): Promise<Bundle> {
       },
       ctrl.signal,
     );
+    // Surface config-file warnings ahead of manifest warnings.
+    if (cfg.warnings.length > 0) bundle.warnings = [...cfg.warnings, ...bundle.warnings];
+    return bundle;
   } finally {
     clearTimeout(timer);
   }

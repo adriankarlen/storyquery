@@ -1,6 +1,16 @@
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+
 import { describe, expect, it } from "vitest";
 
-import { componentsUrl, docsUrl, parseDuration, resolveConfig } from "../src/config.js";
+import {
+  PROJECT_FILE,
+  componentsUrl,
+  docsUrl,
+  parseDuration,
+  resolveConfig,
+} from "../src/config.js";
 
 describe("parseDuration", () => {
   it("parses single units", () => {
@@ -50,5 +60,35 @@ describe("resolveConfig precedence", () => {
     const cfg = resolveConfig("https://x.example.com");
     expect(componentsUrl(cfg)).toBe("https://x.example.com/manifests/components.json");
     expect(docsUrl(cfg)).toBe("https://x.example.com/manifests/docs.json");
+  });
+});
+
+describe("resolveConfig warnings", () => {
+  it("warns on a malformed project config file but still resolves", () => {
+    const dir = mkdtempSync(join(tmpdir(), "sq-config-"));
+    const cwd = process.cwd();
+    process.chdir(dir);
+    delete process.env.SQ_URL;
+    try {
+      writeFileSync(join(dir, PROJECT_FILE), "{ not valid json", "utf8");
+      const cfg = resolveConfig("https://x.example.com");
+      expect(cfg.baseUrl).toBe("https://x.example.com");
+      expect(cfg.warnings.some((w) => /malformed config file/.test(w))).toBe(true);
+    } finally {
+      process.chdir(cwd);
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it("has no warnings for a clean resolution", () => {
+    const cwd = process.cwd();
+    process.chdir(tmpdir());
+    delete process.env.SQ_URL;
+    try {
+      const cfg = resolveConfig("https://x.example.com");
+      expect(cfg.warnings).toEqual([]);
+    } finally {
+      process.chdir(cwd);
+    }
   });
 });

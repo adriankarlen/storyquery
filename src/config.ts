@@ -26,6 +26,8 @@ export class NoUrlError extends Error {
 export interface Config {
   baseUrl: string;
   cacheTtlMs: number;
+  /** Non-fatal messages raised while reading config files (e.g. malformed JSON). */
+  warnings: string[];
 }
 
 interface FileConfig {
@@ -40,6 +42,7 @@ interface FileConfig {
 export function resolveConfig(flagUrl?: string): Config {
   let baseUrl = "";
   let cacheTtlMs = DEFAULT_TTL_MS;
+  const warnings: string[] = [];
 
   const apply = (f: FileConfig) => {
     const u = f.url?.trim();
@@ -48,13 +51,14 @@ export function resolveConfig(flagUrl?: string): Config {
     if (ttl) {
       const ms = parseDuration(ttl);
       if (ms !== null) cacheTtlMs = ms;
+      else warnings.push(`invalid cacheTTL "${ttl}" in config; using default`);
     }
   };
 
   // Lowest precedence first; later assignments win.
-  const global = loadFile(globalPath());
+  const global = loadFile(globalPath(), warnings);
   if (global) apply(global);
-  const project = loadFile(PROJECT_FILE);
+  const project = loadFile(PROJECT_FILE, warnings);
   if (project) apply(project);
 
   const env = process.env[ENV_URL]?.trim();
@@ -66,7 +70,7 @@ export function resolveConfig(flagUrl?: string): Config {
   baseUrl = baseUrl.replace(/\/+$/, "");
   if (!baseUrl) throw new NoUrlError();
 
-  return { baseUrl, cacheTtlMs };
+  return { baseUrl, cacheTtlMs, warnings };
 }
 
 /** The absolute URL of the components manifest. */
@@ -84,14 +88,29 @@ export function cacheDir(): string {
   return join(userCacheDir(), "storyquery");
 }
 
-function loadFile(path: string): FileConfig | null {
+function loadFile(path: string, warnings: string[]): FileConfig | null {
   if (!path) return null;
+  let data: string;
   try {
-    const data = readFileSync(path, "utf8");
-    return JSON.parse(data) as FileConfig;
-  } catch {
+    data = readFileSync(path, "utf8");
+  } catch (err) {
+    // A missing file is the normal case; anything else (permissions, etc.) is
+    // worth surfacing but not fatal.
+    if ((err as NodeJS.ErrnoException)?.code !== "ENOENT") {
+      warnings.push(`could not read config file ${path}: ${errMsg(err)}`);
+    }
     return null;
   }
+  try {
+    return JSON.parse(data) as FileConfig;
+  } catch (err) {
+    warnings.push(`ignoring malformed config file ${path}: ${errMsg(err)}`);
+    return null;
+  }
+}
+
+function errMsg(err: unknown): string {
+  return err instanceof Error ? err.message : String(err);
 }
 
 function globalPath(): string {

@@ -43,9 +43,9 @@ export interface ServiceOptions {
   componentsUrl: string;
   docsUrl: string;
   ttlMs: number;
-  refresh?: boolean;
+  refresh?: boolean | undefined;
   /** A cache store; omit to always fetch fresh. */
-  store?: Store;
+  store?: Store | undefined;
 }
 
 interface LoadedManifest {
