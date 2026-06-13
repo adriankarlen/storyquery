@@ -1,6 +1,6 @@
 {
   "name": "storyquery",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A CLI that queries Storybook design-system manifests and answers agent-friendly questions about components and documentation.",
   "keywords": [
     "storybook",
