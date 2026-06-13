@@ -113,7 +113,7 @@ storyquery query Alert --url https://your-storybook.example.com
 
 ```sh
 npm install
-npm run build       # bundle to dist/ with tsup
+npm run build       # bundle to dist/ with tsdown
 npm run dev         # watch build
 npm run typecheck   # tsc --noEmit
 npm test            # vitest run

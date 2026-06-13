@@ -20,5 +20,5 @@
     "rootDir": ".",
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "test", "tsup.config.ts", "vitest.config.ts"]
+  "include": ["src", "test", "tsdown.config.ts", "vitest.config.ts"]
 }
